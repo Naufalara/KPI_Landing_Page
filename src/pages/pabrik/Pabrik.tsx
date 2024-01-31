@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Pabrik.module.css";
 import { Variants, motion } from "framer-motion";
 import { Title, useMantineTheme } from "@mantine/core";
