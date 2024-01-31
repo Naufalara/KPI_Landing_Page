@@ -7,7 +7,6 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Variants, motion } from "framer-motion";
-import React from "react";
 
 const proses = [
   {
