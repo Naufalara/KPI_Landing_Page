@@ -1,29 +1,22 @@
-import {
-  Container,
-  Timeline,
-  TimelineItem,
-  Text,
-  Title,
-  useMantineTheme,
-} from "@mantine/core";
-import { Variants, motion } from "framer-motion";
+import { Container, Text, Title, useMantineTheme } from "@mantine/core";
+// import { Variants } from "framer-motion";
 
-const text: Variants = {
-  offscreen: {
-    y: 300,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
+// const text: Variants = {
+//   offscreen: {
+//     y: 300,
+//     opacity: 0,
+//   },
+//   onscreen: {
+//     y: 0,
+//     rotate: 0,
+//     opacity: 1,
+//     transition: {
+//       type: "spring",
+//       bounce: 0.4,
+//       duration: 0.8,
+//     },
+//   },
+// };
 export default function Skemaproses() {
   const theme = useMantineTheme();
   return (

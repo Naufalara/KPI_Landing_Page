@@ -7,7 +7,6 @@ import {
   Image,
   Text,
   Flex,
-  Group,
   Title,
   Center,
   useMantineTheme,
