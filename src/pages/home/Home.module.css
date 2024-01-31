@@ -1,0 +1,69 @@
+.topbody {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+    url(/public/slide05-min.jpg) no-repeat center center fixed;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.body2 {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  color: white;
+}
+.title {
+  padding-top: 40vh;
+  font-size: rem(68px);
+  font-weight: 700;
+  color: var(--mantine-color-white);
+  margin-bottom: rem(20px);
+  max-width: 500px;
+  --framer-aspect-ratio-supported: auto;
+  --framer-paragraph-spacing: 0px;
+  pointer-events: auto;
+  user-select: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  -webkit-font-smoothing: inherit;
+  font-family: var(--framer-font-family, Inter, Inter Placeholder, sans-serif);
+  font-style: var(--framer-font-style, normal);
+  font-weight: var(--framer-font-weight, 400);
+  color: var(--framer-text-color, #000);
+  font-size: calc(
+    var(--framer-font-size, 16px) * var(--framer-font-size-scale, 1)
+  );
+  letter-spacing: var(--framer-letter-spacing, 0);
+  text-transform: var(--framer-text-transform, none);
+  text-decoration: var(--framer-text-decoration, none);
+  line-height: var(--framer-line-height, 1.2em);
+  text-align: var(--framer-text-alignment, start);
+  --font-selector: R0Y7TW9udHNlcnJhdC03MDA=;
+  --framer-font-family: "Montserrat", "Montserrat Placeholder", sans-serif;
+  --framer-font-size: 68px;
+  --framer-font-weight: 700;
+  --framer-line-height: 88.4px;
+  --framer-text-color: rgb(255, 255, 255);
+}
+
+.text {
+  max-width: rem(600px);
+  color: var(--mantine-color-white);
+}
+
+.visimisi {
+  @media (max-width: rem(768px)) {
+  }
+}
+
+.certificatetitle {
+  padding-bottom: 5vh;
+}
+.news {
+  padding-top: 10vh;
+}
+
+.titlenews {
+  max-width: 700px;
+}
