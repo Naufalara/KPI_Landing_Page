@@ -13,7 +13,7 @@ import classes from "./HeaderMenu.module.css";
 import kpiLogo from "../../../public/kpi_logo.png";
 
 const links = [
-  { link: "/", label: "Halaman Utama" },
+  { link: "/", label: "Beranda" },
   { link: "/history", label: "Sejarah" },
   {
     link: "",
