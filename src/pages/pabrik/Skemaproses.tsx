@@ -81,9 +81,16 @@ export default function Skemaproses() {
   return (
     <div>
       <Container pt="xl" c={theme.colors.green[9]}>
-        <Title ta="center" pb="xl">
-          Skema Proses Produksi
-        </Title>
+        <motion.div
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0 }}
+          variants={cardVariants}
+        >
+          <Title ta="center" pb="xl">
+            Skema Proses Produksi
+          </Title>
+        </motion.div>
         <Timeline active={8} color={theme.colors.green[9]}>
           {prosesItems}
         </Timeline>

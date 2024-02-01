@@ -3,6 +3,8 @@ import { Variants, motion } from "framer-motion";
 import { Title, useMantineTheme } from "@mantine/core";
 import Datafisik from "./Datafisik";
 import Skemaproses from "./Skemaproses";
+import K3lingkungan from "./K3lingkungan";
+import Emergency from "./Emergency";
 
 export default function Pabrik() {
   const theme = useMantineTheme();
@@ -37,6 +39,8 @@ export default function Pabrik() {
       </motion.div>
       <Datafisik />
       <Skemaproses />
+      <K3lingkungan />
+      <Emergency />
     </div>
   );
 }
