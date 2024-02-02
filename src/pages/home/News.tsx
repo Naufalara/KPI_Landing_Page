@@ -8,11 +8,13 @@ import {
   Group,
   Badge,
   useMantineTheme,
+  em,
 } from "@mantine/core";
 import { Carousel, CarouselSlide } from "@mantine/carousel";
 import "@mantine/carousel/styles.css";
 import classes from "./Home.module.css";
 import { Variants, motion } from "framer-motion";
+import { useMediaQuery } from "@mantine/hooks";
 
 const news = [
   {
@@ -36,7 +38,7 @@ const news = [
 ];
 
 export default function News() {
-  //   const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
   const cardVariants: Variants = {
     offscreen: {
@@ -64,11 +66,21 @@ export default function News() {
           href={link.links}
           withBorder
         >
-          <Card.Section>
-            <Image src={link.image} height={500} alt="No way!" fit="contain" />
+          <Card.Section className={classes.image}>
+            <Image
+              src={link.image}
+              alt="No way!"
+              fit="cover"
+              height={isMobile ? 150 : 400}
+            />
           </Card.Section>
           <Group justify="space-between">
-            <Text fw={500} size="lg" mt="md" className={classes.titlenews}>
+            <Text
+              fw={500}
+              size={isMobile ? "md" : "lg"}
+              mt="md"
+              className={classes.titlenews}
+            >
               {link.title}
             </Text>
             <Badge color="red" variant="light">
@@ -78,7 +90,7 @@ export default function News() {
           <Text mt="xs" c="dimmed" size="sm">
             {link.date}
           </Text>
-          <Text mt="xs" c="dimmed" size="sm" lineClamp={4}>
+          <Text mt="xs" c="dimmed" size="sm" lineClamp={isMobile ? 2 : 4}>
             {link.desc}
           </Text>
         </Card>
@@ -110,10 +122,11 @@ export default function News() {
         >
           <Carousel
             slideSize="70%"
-            height={800}
+            height={isMobile ? 500 : 800}
             slideGap="md"
             controlsOffset="xl"
             controlSize={64}
+            withControls={!isMobile}
             loop
             dragFree
             draggable={false}
