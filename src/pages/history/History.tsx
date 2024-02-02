@@ -151,12 +151,14 @@ export default function History() {
           className="card-container"
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: false, amount: 0 }}
+          viewport={{ once: true, amount: 0 }}
           variants={cardVariants}
         >
           <Container size="default">
             <Flex gap="lg" justify="flex-start" align="center">
-              <Image src={history.image} height={160} fit="contain" />
+              <motion.div whileHover={{ scale: 2 }}>
+                <Image src={history.image} height={160} w={144} fit="contain" />
+              </motion.div>
               <Flex direction="column" c={theme.colors.green[9]}>
                 <Text fw={700}>{history.date}</Text>
                 <Text c="dimmed">{history.desc}</Text>
@@ -207,7 +209,9 @@ export default function History() {
           </Center>
         </Anchor>
         <Center>
-          <Title c={theme.colors.green[9]}>History</Title>
+          <Title c={theme.colors.green[9]} pb="xl">
+            History
+          </Title>
         </Center>
         <Timeline active={activeIndex} color={theme.colors.green[9]}>
           {historyItems}

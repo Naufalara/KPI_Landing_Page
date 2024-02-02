@@ -135,7 +135,7 @@ export default function Certificate() {
           >
             <Center>
               <div style={{ color: theme.colors.green[9] }}>
-                <Title className={classes.certificatetitle}>
+                <Title className={classes.certificatetitle} ta="center">
                   Certificate & Achievement
                 </Title>
               </div>

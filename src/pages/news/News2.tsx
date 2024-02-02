@@ -25,7 +25,7 @@ export default function news2() {
             <Text ml="xs">Back to Home</Text>
           </Center>
         </Anchor>
-        <Card shadow="xl" padding="xl" component="a" withBorder radius="sm">
+        <Card shadow="xl" padding="xl" component="a" withBorder radius="xl">
           <Container size="lg">
             <Flex direction="column">
               <Title ta="center" c={theme.colors.green[9]}>
