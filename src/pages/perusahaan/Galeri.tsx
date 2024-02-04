@@ -8,7 +8,9 @@ import {
   Image,
   Group,
   useMantineTheme,
+  em,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { Variants, motion } from "framer-motion";
 
 const cardVariants: Variants = {
@@ -68,6 +70,7 @@ const galeriwana = [
 ];
 
 export default function Galeri() {
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
   const items = galeriwana.map((galeriwana) => {
     return (
@@ -83,7 +86,11 @@ export default function Galeri() {
         <div>
           <Card shadow="sm" padding="lg" radius="xl" withBorder>
             <Card.Section component="a">
-              <Image src={galeriwana.src} fit="contain" height={350} />
+              <Image
+                src={galeriwana.src}
+                fit="cover"
+                height={isMobile ? 250 : 350}
+              />
             </Card.Section>
 
             <Group
@@ -108,7 +115,7 @@ export default function Galeri() {
             className="card-container"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0 }}
             variants={cardVariants}
           >
             <Center>
@@ -117,7 +124,7 @@ export default function Galeri() {
               </div>
             </Center>
           </motion.div>
-          <SimpleGrid cols={3} spacing="xl" pt="xl">
+          <SimpleGrid cols={isMobile ? 1 : 3} spacing="xl" pt="xl">
             {items}
           </SimpleGrid>
         </div>

@@ -4,6 +4,7 @@ import {
   Flex,
   Group,
   Text,
+  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { DonutChart } from "@mantine/charts";
@@ -42,6 +43,7 @@ export default function Toppage() {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.8 }}
           variants={cardVariants}
+          transition={{ delay: 0.5 }}
         >
           <Container pb="xl" pt="xl" style={{ textAlign: "justify" }}>
             <Text c={theme.colors.green[9]}>
@@ -64,13 +66,11 @@ export default function Toppage() {
             className="card-container"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0 }}
             variants={cardVariants}
           >
             <Group c="white" pt="xl" justify="center">
-              <Text fw={500} size="xl">
-                Komposisi Pemegang Saham
-              </Text>
+              <Title ta="center">Komposisi Pemegang Saham</Title>
             </Group>
           </motion.div>
           <Center>
@@ -78,7 +78,7 @@ export default function Toppage() {
               className="card-container"
               initial="offscreen"
               whileInView="onscreen"
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={{ once: true, amount: 0 }}
               variants={cardVariants}
             >
               <DonutChart
