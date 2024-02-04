@@ -66,6 +66,7 @@ export default function Visimisi() {
       },
     },
   };
+
   const listItemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.1 } },
@@ -78,7 +79,7 @@ export default function Visimisi() {
             className="card-container"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, margin: "300px" }}
             variants={titleVariants}
           >
             <Center>
@@ -95,7 +96,7 @@ export default function Visimisi() {
               className="card-container"
               initial="offscreen"
               whileInView="onscreen"
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0 }}
               variants={cardVariants}
               onHoverStart={() => setIshover(true)}
               onHoverEnd={() => setIshover(false)}
@@ -128,7 +129,7 @@ export default function Visimisi() {
               className="card-container"
               initial="offscreen"
               whileInView="onscreen"
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0 }}
               variants={cardVariants}
               onHoverStart={() => setIshover2(true)}
               onHoverEnd={() => setIshover2(false)}
@@ -164,7 +165,7 @@ export default function Visimisi() {
               className="card-container"
               initial="offscreen"
               whileInView="onscreen"
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0 }}
               variants={cardVariants}
               onHoverStart={() => setIshover3(true)}
               onHoverEnd={() => setIshover3(false)}

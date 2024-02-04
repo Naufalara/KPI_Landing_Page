@@ -16,7 +16,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
 import classes from "./HeaderMenu.module.css";
 import kpiLogo from "../../../public/kpi_logo.png";
-import { motion, useAnimation } from "framer-motion";
+import { Variants, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -137,7 +137,7 @@ export function HeaderMenu() {
           <a href={link.link} className={classes.link}>
             <Flex key={link.label} direction="row" align="center">
               <UnstyledButton onClick={() => setIsOpen(!isOpen)}>
-                <Text>{link.label}</Text>
+                <Text size="md">{link.label}</Text>
               </UnstyledButton>
               <IconChevronDown size="0.9rem" stroke={1.5} />
             </Flex>
@@ -166,11 +166,18 @@ export function HeaderMenu() {
         onClick={close}
       >
         <UnstyledButton>
-          <Text>{link.label}</Text>
+          <Text size="md">{link.label}</Text>
         </UnstyledButton>
       </a>
     );
   });
+
+  const burgerVariants: Variants = {
+    ontap: {
+      x: 0,
+      opacity: 1,
+    },
+  };
 
   return (
     <motion.header
@@ -200,15 +207,18 @@ export function HeaderMenu() {
                 </Center>
               </div>
             </Anchor>
-            <Group gap={10} visibleFrom="sm">
+            <Group gap={10} visibleFrom="md">
               {items}
             </Group>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              size="sm"
-              hiddenFrom="sm"
-            />
+            <motion.div>
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                size="sm"
+                hiddenFrom="md"
+              />
+            </motion.div>
+
             <Drawer
               radius="md"
               opened={opened}
@@ -217,7 +227,13 @@ export function HeaderMenu() {
               size="xs"
               position="right"
             >
-              {drawerItems}
+              <motion.div
+                initial={{ x: 200, opacity: 0 }}
+                whileInView="ontap"
+                variants={burgerVariants}
+              >
+                {drawerItems}
+              </motion.div>
             </Drawer>
           </div>
         </Container>

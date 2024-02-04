@@ -5,12 +5,15 @@ import {
   Image,
   Text,
   Title,
+  em,
   useMantineTheme,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { Variants, motion } from "framer-motion";
 
 //kpi.co.id/public/upload/image/csr-1.jpg
 export default function Program() {
+  const ismobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
   const cardVariants: Variants = {
     offscreen: {
@@ -39,11 +42,15 @@ export default function Program() {
           variants={cardVariants}
         >
           <Container c={theme.colors.green[9]}>
-            <Flex gap={20} direction="row" align="center">
+            <Flex
+              gap={20}
+              direction={ismobile ? "column" : "row"}
+              align="center"
+            >
               <Image
                 src="https://kpi.co.id/public/upload/image/csr-1.jpg"
                 h={300}
-                w={500}
+                w={ismobile ? 200 : 500}
               />
               <Group>
                 <Title>Program Penghijauan dan Lingkungan</Title>
@@ -64,10 +71,16 @@ export default function Program() {
           variants={cardVariants}
         >
           <Container pt="xl" c={theme.colors.green[9]} pb="xl">
-            <Flex gap={20} direction="row" align="center">
+            <Flex
+              gap={20}
+              direction={ismobile ? "column-reverse" : "row"}
+              align="center"
+            >
               <Group>
-                <Title ta="right">Program Pendidikan dan Pelatihan</Title>
-                <Text ta="right">
+                <Title ta={ismobile ? "left" : "right"}>
+                  Program Pendidikan dan Pelatihan
+                </Title>
+                <Text ta={ismobile ? "left" : "right"}>
                   Pendidikan merupakan jembatan penting menuju kesejahteraan.
                   Sayangnya, keterbatasan ekonomi seringkali menjadi penyebab
                   utama bagi masyarakat sehingga kurang memperhatikan
@@ -77,7 +90,7 @@ export default function Program() {
               <Image
                 src="https://kpi.co.id/public/upload/image/csr-2.jpg"
                 h={300}
-                w={500}
+                w={ismobile ? 200 : 500}
               />
             </Flex>
           </Container>

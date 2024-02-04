@@ -4,12 +4,15 @@ import {
   List,
   SimpleGrid,
   Title,
+  em,
   useMantineTheme,
 } from "@mantine/core";
 import { Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 
 export default function Datafisik() {
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
   return (
     <div style={{ backgroundColor: theme.colors.green[9] }}>
@@ -24,7 +27,7 @@ export default function Datafisik() {
       >
         <Container pt="xl" pb="xl" c="white">
           <Title ta="center">Data Fisik & Produk</Title>
-          <SimpleGrid cols={2} spacing="xl" pt="xl">
+          <SimpleGrid cols={isMobile ? 1 : 2} spacing="xl" pt="xl">
             <div>
               <Text pt="md" pb="md">
                 Produk yang dipasarkan oleh KPI secara komersial ialah Anyhdrous

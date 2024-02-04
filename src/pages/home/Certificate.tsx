@@ -130,7 +130,7 @@ export default function Certificate() {
             className="card-container"
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0 }}
             variants={cardVariants}
           >
             <Center>
