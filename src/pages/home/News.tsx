@@ -59,13 +59,7 @@ export default function News() {
   const items = news.map((link) => {
     return (
       <CarouselSlide>
-        <Card
-          shadow="sm"
-          padding="xl"
-          component="a"
-          href={link.links}
-          withBorder
-        >
+        <Card shadow="sm" padding="xl" component="a" href={link.links}>
           <Card.Section className={classes.image}>
             <Image
               src={link.image}
@@ -109,7 +103,7 @@ export default function News() {
         >
           <Center>
             <div style={{ color: theme.colors.green[9] }}>
-              <Title pb={32}>News</Title>
+              <Title pb={32}>Berita</Title>
             </div>
           </Center>
         </motion.div>

@@ -9,9 +9,16 @@ import {
   Group,
   useMantineTheme,
   em,
+  Modal,
 } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { Variants, motion } from "framer-motion";
+import { useState } from "react";
+
+interface GaleriType {
+  src: string;
+  label: string;
+}
 
 const cardVariants: Variants = {
   offscreen: {
@@ -30,7 +37,7 @@ const cardVariants: Variants = {
   },
 };
 
-const galeriwana = [
+const galeriwana: GaleriType[] = [
   {
     src: "https://kpi.co.id/public/upload/image/gazebo-compressed-1623392776.jpg",
     label: "Gazebo Wana Khatulistiwa",
@@ -56,15 +63,19 @@ const galeriwana = [
     label: "Papan Nama Wana Khatulistiwa",
   },
   {
+    src: "",
     label: "Pemeriksaan Hb, Test Kebugaran Siswa/i SMPN 4 Galilea Bontang",
   },
   {
+    src: "",
     label: "KolakPisang-1",
   },
   {
+    src: "",
     label: "KolakPisang-2",
   },
   {
+    src: "",
     label: "KolakPisang-3",
   },
 ];
@@ -72,9 +83,12 @@ const galeriwana = [
 export default function Galeri() {
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
-  const items = galeriwana.map((galeriwana) => {
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedGaleri, setSelectedGaleri] = useState<GaleriType | null>(null);
+  const items = galeriwana.map((galeriwana, index) => {
     return (
       <motion.div
+        key={index}
         className="box"
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -82,6 +96,10 @@ export default function Galeri() {
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.3 }}
         variants={cardVariants}
+        onClick={() => {
+          setSelectedGaleri(galeriwana);
+          open();
+        }}
       >
         <div>
           <Card shadow="sm" padding="lg" radius="xl" withBorder>
@@ -120,7 +138,7 @@ export default function Galeri() {
           >
             <Center>
               <div style={{ color: theme.colors.green[9] }}>
-                <Title>Galeri Wanakhatulistiwa</Title>
+                <Title>Galeri Wana Khatulistiwa</Title>
               </div>
             </Center>
           </motion.div>
@@ -129,6 +147,22 @@ export default function Galeri() {
           </SimpleGrid>
         </div>
       </Container>
+      <Modal
+        opened={opened}
+        onClose={close}
+        centered
+        size={isMobile ? "100%" : "auto"}
+        withCloseButton={false}
+      >
+        {selectedGaleri && (
+          <Image
+            src={selectedGaleri.src}
+            fit={isMobile ? "contain" : "cover"}
+            w="auto"
+            height={isMobile ? "400" : "600"}
+          />
+        )}
+      </Modal>
     </div>
   );
 }

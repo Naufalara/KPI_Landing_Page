@@ -72,7 +72,7 @@ export default function Visimisi() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.1 } },
   };
   return (
-    <div style={{ backgroundColor: theme.colors.green[9] }}>
+    <div style={{ backgroundColor: theme.colors.green[9] }} id="visimisi">
       <Container size="xl">
         <div className={classes.body2}>
           <motion.div

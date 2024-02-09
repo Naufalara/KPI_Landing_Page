@@ -2,6 +2,8 @@ import {
   MantineProvider,
   createTheme,
   MantineColorsTuple,
+  Flex,
+  Input,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { HeaderMenu } from "./component/Header/HeaderMenu";
@@ -16,6 +18,12 @@ import News2 from "./pages/news/News2";
 import Perusahaan from "./pages/perusahaan/Perusahaan";
 import "@mantine/charts/styles.css";
 import Pabrik from "./pages/pabrik/Pabrik";
+import Login from "./pages/admin/login/login";
+import Dashboard from "./pages/admin/dashboard/Dashboard";
+import { Navbar } from "./component/Navbar/Navbar";
+import LandingPageEdit from "./pages/admin/landing-page-edit/landing-page-edit";
+import Newsadmin from "./pages/admin/news/Newsadmin";
+import classes from "./App.module.css";
 
 const myColor: MantineColorsTuple = [
   "#e5feee",
@@ -49,38 +57,187 @@ const theme = createTheme({
     gray: myColor2,
   },
   fontFamily: "Montserrat",
+  components: {
+    Input: Input.extend({
+      classNames: {
+        input: classes.input,
+      },
+    }),
+  },
 });
 
 function App() {
   return (
-    <>
-      <Router>
-        <MantineProvider theme={theme} defaultColorScheme="light">
-          <HeaderMenu />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/docs" element={<div>Docs</div>} />
-            <Route
-              path="/safety_induction"
-              element={<div>Safety Induction</div>}
-            />
-            <Route path="/community" element={<div>Community</div>} />
-            <Route path="/csr" element={<div>CSR</div>} />
-            <Route path="/akkpi" element={<div>AKKPI</div>} />
-            <Route path="/giska" element={<div>Giska</div>} />
-            <Route path="/history" element={<div>History</div>} />
-            <Route path="/news/1" element={<News1 />} />
-            <Route path="/news/2" element={<News2 />} />
-            <Route path="*" element={<NotFoundImage />} />
-            <Route path="/perusahaan" element={<Perusahaan />} />
-            <Route path="/pabrik" element={<Pabrik />} />
-          </Routes>
-          <Affixbottom />
-          <FooterLinks />
-        </MantineProvider>
-      </Router>
-    </>
+    <Router>
+      <MantineProvider theme={theme} defaultColorScheme="light">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeaderMenu />
+                <Home />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <>
+                <HeaderMenu />
+                <History />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/docs"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Docs</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/safety_induction"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Safety Induction</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/community"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Safety Induction</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/csr"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Safety Induction</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/akkpi"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Safety Induction</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/giska"
+            element={
+              <>
+                <HeaderMenu />
+                <div>Safety Induction</div>
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/news/1"
+            element={
+              <>
+                <HeaderMenu />
+                <News1 />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/news/2"
+            element={
+              <>
+                <HeaderMenu />
+                <News2 />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/perusahaan"
+            element={
+              <>
+                <HeaderMenu />
+                <Perusahaan />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/pabrik"
+            element={
+              <>
+                <HeaderMenu />
+                <Pabrik />
+                <FooterLinks />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <HeaderMenu />
+                <Login />
+              </>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <>
+                <Flex>
+                  <Navbar />
+                  <Dashboard />
+                </Flex>
+              </>
+            }
+          />
+          <Route
+            path="/landing-page-edit"
+            element={
+              <>
+                <Flex>
+                  <Navbar />
+                  <LandingPageEdit />
+                </Flex>
+              </>
+            }
+          />
+          <Route
+            path="/news-admin"
+            element={
+              <>
+                <Flex>
+                  <Navbar />
+                  <Newsadmin />
+                </Flex>
+              </>
+            }
+          />
+          <Route path="*" element={<NotFoundImage />} />
+        </Routes>
+        <Affixbottom />
+      </MantineProvider>
+    </Router>
   );
 }
 

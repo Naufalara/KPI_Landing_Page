@@ -11,7 +11,6 @@ import {
 import { useMediaQuery } from "@mantine/hooks";
 import { Variants, motion } from "framer-motion";
 
-//kpi.co.id/public/upload/image/csr-1.jpg
 export default function Program() {
   const ismobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();

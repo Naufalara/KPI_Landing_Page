@@ -11,42 +11,36 @@ import {
   UnstyledButton,
   Collapse,
   Flex,
+  Stack,
+  ActionIcon,
+  rem,
+  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { IconChevronDown } from "@tabler/icons-react";
+import {
+  IconChevronDown,
+  IconHome,
+  IconClock,
+  IconInfoCircle,
+  IconBrandYoutube,
+  IconBrandLinkedin,
+  IconBrandInstagram,
+} from "@tabler/icons-react";
 import classes from "./HeaderMenu.module.css";
 import kpiLogo from "../../../public/kpi_logo.png";
 import { Variants, motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const links = [
-  { link: "/", label: "Beranda" },
-  { link: "/history", label: "Sejarah" },
+  { link: "/", label: "Beranda", icon: <IconHome size={20} /> },
+  { link: "/history", label: "Sejarah", icon: <IconClock size={20} /> },
   {
     label: "Tentang",
     links: [
       { link: "/perusahaan", label: "Perusahaan" },
       { link: "/pabrik", label: "Pabrik" },
     ],
-  },
-  {
-    label: "Learn",
-    links: [
-      { link: "/docs", label: "Amonia" },
-      { link: "/safety_induction", label: "Safety Induction" },
-      { link: "/community", label: "Community" },
-    ],
-  },
-
-  { link: "/news", label: "Berita" },
-
-  {
-    label: "Program",
-    links: [
-      { link: "/csr", label: "CSR" },
-      { link: "/akkpi", label: "AKKPI" },
-      { link: "/giska", label: "Giska" },
-    ],
+    icon: <IconInfoCircle size={20} />,
   },
 ];
 
@@ -54,6 +48,7 @@ export function HeaderMenu() {
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const [opened, { toggle }] = useDisclosure(false);
   const controls = useAnimation();
+  const theme = useMantineTheme();
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
@@ -116,9 +111,10 @@ export function HeaderMenu() {
   const drawerItems = links.map((link) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const drawermenuItems = link.links?.map((drawerItem) => (
+    const drawermenuItems = link.links?.map((drawerItem, index) => (
       <div key={drawerItem.link}>
         <a
+          key={index}
           href={drawerItem.link}
           className={classes.link}
           onClick={() => {
@@ -137,7 +133,10 @@ export function HeaderMenu() {
           <a href={link.link} className={classes.link}>
             <Flex key={link.label} direction="row" align="center">
               <UnstyledButton onClick={() => setIsOpen(!isOpen)}>
-                <Text size="md">{link.label}</Text>
+                <Flex direction="row" gap="md" align="center">
+                  {link.icon}
+                  <Text size="md">{link.label}</Text>
+                </Flex>
               </UnstyledButton>
               <IconChevronDown size="0.9rem" stroke={1.5} />
             </Flex>
@@ -166,7 +165,10 @@ export function HeaderMenu() {
         onClick={close}
       >
         <UnstyledButton>
-          <Text size="md">{link.label}</Text>
+          <Flex direction="row" gap="md" align="center">
+            {link.icon}
+            <Text size="md">{link.label}</Text>
+          </Flex>
         </UnstyledButton>
       </a>
     );
@@ -190,9 +192,9 @@ export function HeaderMenu() {
       <header>
         <Container size="xl">
           <div className={classes.inner}>
-            <Anchor variant="color" href="/" underline="never">
-              <div style={{ display: "flex" }}>
-                <Center inline>
+            <Group visibleFrom="md" justify="space-between">
+              <Anchor variant="color" href="/" underline="never">
+                <Center inline pt={5}>
                   <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
                   <Text
                     className={classes.logotext}
@@ -205,10 +207,74 @@ export function HeaderMenu() {
                     PT. Kaltim Parna Industri
                   </Text>
                 </Center>
-              </div>
-            </Anchor>
-            <Group gap={10} visibleFrom="md">
+              </Anchor>
+
               {items}
+
+              <Stack align="center">
+                <Text c={theme.colors.green[9]} fw={700} pt="sm">
+                  Social Media
+                </Text>
+                <Group justify="center">
+                  <a
+                    href="https://www.instagram.com/ptkpi_id/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ActionIcon
+                      size={isMobile ? 50 : 40}
+                      color={theme.colors.green[9]}
+                      variant="subtle"
+                    >
+                      <IconBrandInstagram
+                        style={{
+                          width: rem(isMobile ? 40 : 40),
+                          height: rem(isMobile ? 40 : 40),
+                        }}
+                        stroke={1.5}
+                      />
+                    </ActionIcon>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/pt-kaltim-parna-industri/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ActionIcon
+                      size={isMobile ? 50 : 40}
+                      color={theme.colors.green[9]}
+                      variant="subtle"
+                    >
+                      <IconBrandLinkedin
+                        style={{
+                          width: rem(isMobile ? 40 : 40),
+                          height: rem(isMobile ? 40 : 40),
+                        }}
+                        stroke={1.5}
+                      />
+                    </ActionIcon>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCBIW_34hXxve6QgQyL-dogQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ActionIcon
+                      size={isMobile ? 50 : 40}
+                      color={theme.colors.green[9]}
+                      variant="subtle"
+                    >
+                      <IconBrandYoutube
+                        style={{
+                          width: rem(isMobile ? 40 : 40),
+                          height: rem(isMobile ? 40 : 40),
+                        }}
+                        stroke={1.5}
+                      />
+                    </ActionIcon>
+                  </a>
+                </Group>
+              </Stack>
             </Group>
             <motion.div>
               <Burger
@@ -228,6 +294,7 @@ export function HeaderMenu() {
               position="right"
             >
               <motion.div
+                key={1}
                 initial={{ x: 200, opacity: 0 }}
                 whileInView="ontap"
                 variants={burgerVariants}
