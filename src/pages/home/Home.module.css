@@ -12,7 +12,6 @@
   color: white;
 }
 .title {
-  padding-top: 40vh;
   font-size: rem(68px);
   font-weight: 700;
   color: var(--mantine-color-white);

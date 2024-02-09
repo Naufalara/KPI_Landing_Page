@@ -69,7 +69,7 @@ export default function Toppage() {
             viewport={{ once: true, amount: 0 }}
             variants={cardVariants}
           >
-            <Group c="white" pt="xl" justify="center">
+            <Group c="white" justify="center">
               <Title ta="center">Komposisi Pemegang Saham</Title>
             </Group>
           </motion.div>

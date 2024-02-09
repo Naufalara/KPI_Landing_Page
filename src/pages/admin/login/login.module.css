@@ -1,0 +1,24 @@
+.bgimage {
+  height: 100vh; /* Tinggi viewport penuh */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bgimage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://kpi.co.id/public/upload/image/thumbs/img-3231a-1701762443.jpg)
+    center/cover no-repeat; /* Gambar latar belakang */
+  filter: blur(5px); /* Tingkat blur yang diinginkan */
+  z-index: -1;
+}
+
+.containerOverlay {
+  position: relative;
+  z-index: 1;
+}

@@ -8,9 +8,9 @@ import {
   Center,
   Space,
   SimpleGrid,
+  em,
 } from "@mantine/core";
 import {
-  IconBrandTwitter,
   IconBrandYoutube,
   IconBrandInstagram,
   IconPhone,
@@ -18,8 +18,11 @@ import {
 } from "@tabler/icons-react";
 import kpiLogo from "../../../public/kpi_logo.png";
 import classes from "./FooterLinks.module.css";
+import { useMediaQuery } from "@mantine/hooks";
 
 export function FooterLinks() {
+  const ismobile = useMediaQuery(`(max-width: ${em(750)})`);
+
   return (
     <footer className={classes.footer}>
       <Container className={classes.inner}>
@@ -41,7 +44,7 @@ export function FooterLinks() {
 
         <div>
           <Space h="md" />
-          <SimpleGrid cols={2}>
+          <SimpleGrid cols={ismobile ? 1 : 2}>
             <div>
               <Center>
                 <Text fw={500} size="xs" c="dimmed">
@@ -139,37 +142,16 @@ export function FooterLinks() {
           wrap="nowrap"
         >
           <a
-            href="https://twitter.com/ptkpi_id"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ActionIcon size="lg" color="gray" variant="subtle">
-              <IconBrandTwitter
-                style={{ width: rem(18), height: rem(18) }}
-                stroke={1.5}
-              />
-            </ActionIcon>
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCBIW_34hXxve6QgQyL-dogQ"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ActionIcon size="lg" color="gray" variant="subtle">
-              <IconBrandYoutube
-                style={{ width: rem(18), height: rem(18) }}
-                stroke={1.5}
-              />
-            </ActionIcon>
-          </a>
-          <a
             href="https://www.instagram.com/ptkpi_id/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ActionIcon size="lg" color="gray" variant="subtle">
+            <ActionIcon size={ismobile ? 50 : 60} color="gray" variant="subtle">
               <IconBrandInstagram
-                style={{ width: rem(18), height: rem(18) }}
+                style={{
+                  width: rem(ismobile ? 40 : 40),
+                  height: rem(ismobile ? 40 : 40),
+                }}
                 stroke={1.5}
               />
             </ActionIcon>
@@ -179,9 +161,27 @@ export function FooterLinks() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <ActionIcon size="lg" color="gray" variant="subtle">
+            <ActionIcon size={ismobile ? 50 : 60} color="gray" variant="subtle">
               <IconBrandLinkedin
-                style={{ width: rem(18), height: rem(18) }}
+                style={{
+                  width: rem(ismobile ? 40 : 40),
+                  height: rem(ismobile ? 40 : 40),
+                }}
+                stroke={1.5}
+              />
+            </ActionIcon>
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCBIW_34hXxve6QgQyL-dogQ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <ActionIcon size={ismobile ? 50 : 60} color="gray" variant="subtle">
+              <IconBrandYoutube
+                style={{
+                  width: rem(ismobile ? 40 : 40),
+                  height: rem(ismobile ? 40 : 40),
+                }}
                 stroke={1.5}
               />
             </ActionIcon>

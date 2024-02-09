@@ -8,11 +8,21 @@ import {
   Image,
   Group,
   useMantineTheme,
+  Modal,
 } from "@mantine/core";
 import classes from "./Home.module.css";
 import { Variants, motion } from "framer-motion";
+import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
 
-const certificate = [
+interface CertificateType {
+  src: string;
+  label: string;
+  badge: string;
+  desc: string;
+}
+
+const certificate: CertificateType[] = [
   {
     src: "https://kpi.co.id/public/upload/image/iso.png",
     label: "ISO 9001 : 2015",
@@ -81,20 +91,30 @@ const cardVariants: Variants = {
 };
 
 export default function Certificate() {
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<CertificateType | null>(null);
+
   const theme = useMantineTheme();
-  const items = certificate.map((certif) => {
+
+  const items = certificate.map((certif, index) => {
     return (
       <motion.div
+        key={index}
         className={`box ${classes.mobileMargin}`}
         whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0 }}
         variants={cardVariants}
+        onClick={() => {
+          setSelectedCertificate(certif);
+          open();
+        }}
       >
         <div>
-          <Card shadow="sm" padding="lg" radius="md" withBorder>
+          <Card shadow="sm" padding="lg" radius="md">
             <Card.Section component="a">
               <Image
                 src={certif.src}
@@ -136,19 +156,34 @@ export default function Certificate() {
             <Center>
               <div style={{ color: theme.colors.green[9] }}>
                 <Title className={classes.certificatetitle} ta="center">
-                  Certificate & Achievement
+                  Sertifikat dan Pencapaian
                 </Title>
               </div>
             </Center>
           </motion.div>
           <SimpleGrid
-            cols={{ xs: 1, sm: 1, md: 2, lg: 3 }} // Adjust the number of columns based on screen size
-            spacing={{ xs: "md", md: "xl" }} // Adjust the spacing between items based on screen size
+            cols={{ xs: 1, sm: 1, md: 2, lg: 3 }}
+            spacing={{ xs: "md", md: "xl" }}
           >
             {items}
           </SimpleGrid>
         </div>
       </Container>
+      <Modal
+        opened={opened}
+        onClose={close}
+        centered
+        color={theme.colors.green[9]}
+      >
+        {selectedCertificate && (
+          <Image
+            src={selectedCertificate.src}
+            fit="contain"
+            alt="Certificate"
+            height={400} // Adjust the height as needed
+          />
+        )}
+      </Modal>
     </div>
   );
 }

@@ -23,7 +23,7 @@ import { useState } from "react";
 
 export default function Topbody() {
   const baseText =
-    "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia" as string;
+    "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata kelola korporasi yang baik, serta berperan dalam pembangunan ekonomi nasional. KPI mampu berkompetisi dalam skala regional maupun internasional dan berorientasi pada kepentingan pelanggan serta berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan" as string;
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const displayText = useTransform(rounded, (latest) =>
@@ -78,7 +78,6 @@ export default function Topbody() {
               showLabel="Show more"
               hideLabel="Hide"
               pb="md"
-              w={700}
             >
               <span className={classes.text}>
                 <motion.span>{displayText}</motion.span>

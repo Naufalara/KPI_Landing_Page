@@ -6,6 +6,7 @@ import Skemaproses from "./Skemaproses";
 import K3lingkungan from "./K3lingkungan";
 import Emergency from "./Emergency";
 import EmergencyDrill from "./EmergencyDrill";
+import K3lingkungan2 from "./K3lingkungan2";
 
 export default function Pabrik() {
   const theme = useMantineTheme();
@@ -40,7 +41,7 @@ export default function Pabrik() {
       </motion.div>
       <Datafisik />
       <Skemaproses />
-      <K3lingkungan />
+      <K3lingkungan2 />
       <Emergency />
       <EmergencyDrill />
     </div>
