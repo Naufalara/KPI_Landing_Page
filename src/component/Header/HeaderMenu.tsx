@@ -65,7 +65,7 @@ export function HeaderMenu() {
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link} color={theme.colors.green[9]}>
+      <Menu.Item key={item.link} color={theme.colors.green[9]} visibleFrom="md">
         <a href={item.link} className={classes.labelonlink}>
           {item.label}
         </a>
@@ -82,7 +82,7 @@ export function HeaderMenu() {
         >
           <Menu.Target>
             <a href={link.link} className={classes.link}>
-              <Center>
+              <Center visibleFrom="md">
                 <UnstyledButton className={classes.linkLabel}>
                   <Text size="sm" fw={700}>
                     {link.label}
@@ -92,14 +92,16 @@ export function HeaderMenu() {
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown pt={30}>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown pt={30} visibleFrom="md">
+            {menuItems}
+          </Menu.Dropdown>
         </Menu>
       );
     }
 
     return (
       <a key={link.label} href={link.link} className={classes.link}>
-        <UnstyledButton>
+        <UnstyledButton visibleFrom="md">
           <Text size="sm" fw={700}>
             {link.label}
           </Text>
@@ -131,7 +133,7 @@ export function HeaderMenu() {
       return (
         <>
           <a href={link.link} className={classes.link}>
-            <Flex key={link.label} direction="row" align="center">
+            <Flex key={link.label} direction="row" align="center" p="md">
               <UnstyledButton onClick={() => setIsOpen(!isOpen)}>
                 <Flex direction="row" gap="md" align="center">
                   {link.icon}
@@ -164,7 +166,7 @@ export function HeaderMenu() {
         className={classes.link}
         onClick={close}
       >
-        <UnstyledButton>
+        <UnstyledButton p="md">
           <Flex direction="row" gap="md" align="center">
             {link.icon}
             <Text size="md">{link.label}</Text>
@@ -192,7 +194,7 @@ export function HeaderMenu() {
       <header>
         <Container size="xl">
           <div className={classes.inner}>
-            <Group visibleFrom="md" justify="space-between">
+            <Group justify="space-between" visibleFrom="md">
               <Anchor variant="color" href="/" underline="never">
                 <Center inline pt={5}>
                   <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
@@ -211,7 +213,7 @@ export function HeaderMenu() {
 
               {items}
 
-              <Stack align="center">
+              <Stack align="center" visibleFrom="md">
                 <Text c={theme.colors.green[9]} fw={700} pt="sm">
                   Social Media
                 </Text>
@@ -276,20 +278,35 @@ export function HeaderMenu() {
                 </Group>
               </Stack>
             </Group>
-            <motion.div>
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                size="sm"
-                hiddenFrom="md"
-              />
-            </motion.div>
-
+            <Group hiddenFrom="md" justify="space-between" pt="md" pb="md">
+              <Anchor variant="color" href="/" underline="never">
+                <Center inline pt={5}>
+                  <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
+                  <Text
+                    className={classes.logotext}
+                    style={{
+                      marginLeft: "10px",
+                    }}
+                    size="sm"
+                    fw={700}
+                  >
+                    PT. Kaltim Parna Industri
+                  </Text>
+                </Center>
+              </Anchor>
+              <motion.div>
+                <Burger
+                  opened={opened}
+                  onClick={toggle}
+                  size="sm"
+                  hiddenFrom="md"
+                />
+              </motion.div>
+            </Group>
             <Drawer
               radius="md"
               opened={opened}
               onClose={close}
-              pt="xl"
               size="xs"
               position="right"
             >
@@ -298,6 +315,7 @@ export function HeaderMenu() {
                 initial={{ x: 200, opacity: 0 }}
                 whileInView="ontap"
                 variants={burgerVariants}
+                style={{ paddingTop: 32 }}
               >
                 {drawerItems}
               </motion.div>
