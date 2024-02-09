@@ -65,8 +65,8 @@ export function HeaderMenu() {
 
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>
-        <a href={item.link} className={classes.link}>
+      <Menu.Item key={item.link} color={theme.colors.green[9]}>
+        <a href={item.link} className={classes.labelonlink}>
           {item.label}
         </a>
       </Menu.Item>
@@ -84,7 +84,7 @@ export function HeaderMenu() {
             <a href={link.link} className={classes.link}>
               <Center>
                 <UnstyledButton className={classes.linkLabel}>
-                  <Text size="sm" fw={500}>
+                  <Text size="sm" fw={700}>
                     {link.label}
                   </Text>
                 </UnstyledButton>
@@ -92,7 +92,7 @@ export function HeaderMenu() {
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+          <Menu.Dropdown pt={30}>{menuItems}</Menu.Dropdown>
         </Menu>
       );
     }
@@ -100,7 +100,7 @@ export function HeaderMenu() {
     return (
       <a key={link.label} href={link.link} className={classes.link}>
         <UnstyledButton>
-          <Text size="sm" fw={500}>
+          <Text size="sm" fw={700}>
             {link.label}
           </Text>
         </UnstyledButton>
@@ -202,7 +202,7 @@ export function HeaderMenu() {
                       marginLeft: "10px",
                     }}
                     size="sm"
-                    fw={500}
+                    fw={700}
                   >
                     PT. Kaltim Parna Industri
                   </Text>
