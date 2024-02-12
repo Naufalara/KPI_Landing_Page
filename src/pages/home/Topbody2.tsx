@@ -23,7 +23,10 @@ import { useState } from "react";
 
 export default function Topbody() {
   const baseText =
-    "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata kelola korporasi yang baik, serta berperan dalam pembangunan ekonomi nasional. KPI mampu berkompetisi dalam skala regional maupun internasional dan berorientasi pada kepentingan pelanggan serta berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan" as string;
+    "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia" as string;
+
+  // const baseText =
+  //   "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata kelola korporasi yang baik, serta berperan dalam pembangunan ekonomi nasional. KPI mampu berkompetisi dalam skala regional maupun internasional dan berorientasi pada kepentingan pelanggan serta berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan" as string;
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const displayText = useTransform(rounded, (latest) =>
@@ -67,7 +70,7 @@ export default function Topbody() {
             className={classes.motionDiv}
           >
             <Title
-              order={1}
+              order={3}
               className={classes.title}
               pt={isMobile ? rem(200) : rem(400)}
             >
@@ -106,7 +109,7 @@ export default function Topbody() {
                     to="visimisi"
                     smooth={true}
                     duration={500}
-                    offset={isMobile ? 10 : -200}
+                    offset={isMobile ? -50 : -200}
                   >
                     Baca Selengkapnya
                   </Link>

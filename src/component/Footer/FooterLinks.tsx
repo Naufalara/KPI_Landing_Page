@@ -31,7 +31,7 @@ export function FooterLinks() {
             <Center inline>
               <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
               <Text
-                c="black"
+                c="dimmed"
                 className={classes.logotext}
                 style={{ marginLeft: "10px" }}
                 size="sm"

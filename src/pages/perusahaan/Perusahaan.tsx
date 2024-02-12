@@ -3,7 +3,6 @@ import classes from "./Perusahaan.module.css";
 import Toppage from "./Toppage";
 import Program from "./Program";
 import { Variants, motion } from "framer-motion";
-import Wanakhatulistiwa from "./Wanakhatulistiwa";
 import Galeri from "./Galeri";
 
 export default function () {
@@ -51,7 +50,7 @@ export default function () {
       </motion.div>
 
       <Program />
-      <Wanakhatulistiwa />
+      {/* <Wanakhatulistiwa /> */}
       <Galeri />
     </div>
   );

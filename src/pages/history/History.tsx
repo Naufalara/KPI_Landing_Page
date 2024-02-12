@@ -11,8 +11,10 @@ import {
   Center,
   useMantineTheme,
   Anchor,
+  em,
 } from "@mantine/core";
 import { IconArrowNarrowLeft } from "@tabler/icons-react";
+import { useMediaQuery } from "@mantine/hooks";
 
 const history = [
   {
@@ -144,6 +146,7 @@ const cardVariants: Variants = {
 export default function History() {
   const theme = useMantineTheme();
   const [activeIndex, setActiveIndex] = useState(0);
+  const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const historyItems = history.map((history) => {
     return (
       <Timeline.Item>
@@ -157,7 +160,12 @@ export default function History() {
           <Container size="default">
             <Flex gap="lg" justify="flex-start" align="center">
               <motion.div whileHover={{ scale: 2 }}>
-                <Image src={history.image} height={160} w={144} fit="contain" />
+                <Image
+                  src={history.image}
+                  height={160}
+                  w={isMobile ? 100 : 144}
+                  fit="contain"
+                />
               </motion.div>
               <Flex direction="column" c={theme.colors.green[9]}>
                 <Text fw={700}>{history.date}</Text>

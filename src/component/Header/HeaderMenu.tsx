@@ -311,13 +311,77 @@ export function HeaderMenu() {
               position="right"
             >
               <motion.div
-                key={1}
                 initial={{ x: 200, opacity: 0 }}
                 whileInView="ontap"
                 variants={burgerVariants}
                 style={{ paddingTop: 32 }}
               >
                 {drawerItems}
+
+                <Stack align="center">
+                  <Text c={theme.colors.green[9]} fw={700} pt="sm">
+                    Social Media
+                  </Text>
+                  <Group justify="center">
+                    <a
+                      href="https://www.instagram.com/ptkpi_id/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ActionIcon
+                        size={isMobile ? 50 : 40}
+                        color={theme.colors.green[9]}
+                        variant="subtle"
+                      >
+                        <IconBrandInstagram
+                          style={{
+                            width: rem(isMobile ? 40 : 40),
+                            height: rem(isMobile ? 40 : 40),
+                          }}
+                          stroke={1.5}
+                        />
+                      </ActionIcon>
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/pt-kaltim-parna-industri/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ActionIcon
+                        size={isMobile ? 50 : 40}
+                        color={theme.colors.green[9]}
+                        variant="subtle"
+                      >
+                        <IconBrandLinkedin
+                          style={{
+                            width: rem(isMobile ? 40 : 40),
+                            height: rem(isMobile ? 40 : 40),
+                          }}
+                          stroke={1.5}
+                        />
+                      </ActionIcon>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UCBIW_34hXxve6QgQyL-dogQ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ActionIcon
+                        size={isMobile ? 50 : 40}
+                        color={theme.colors.green[9]}
+                        variant="subtle"
+                      >
+                        <IconBrandYoutube
+                          style={{
+                            width: rem(isMobile ? 40 : 40),
+                            height: rem(isMobile ? 40 : 40),
+                          }}
+                          stroke={1.5}
+                        />
+                      </ActionIcon>
+                    </a>
+                  </Group>
+                </Stack>
               </motion.div>
             </Drawer>
           </div>

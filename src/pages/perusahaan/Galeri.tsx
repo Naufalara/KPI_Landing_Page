@@ -62,22 +62,6 @@ const galeriwana: GaleriType[] = [
     src: "https://kpi.co.id/public/upload/image/hk-oct16-d-1623392950.jpg",
     label: "Papan Nama Wana Khatulistiwa",
   },
-  {
-    src: "",
-    label: "Pemeriksaan Hb, Test Kebugaran Siswa/i SMPN 4 Galilea Bontang",
-  },
-  {
-    src: "",
-    label: "KolakPisang-1",
-  },
-  {
-    src: "",
-    label: "KolakPisang-2",
-  },
-  {
-    src: "",
-    label: "KolakPisang-3",
-  },
 ];
 
 export default function Galeri() {
@@ -102,7 +86,7 @@ export default function Galeri() {
         }}
       >
         <div>
-          <Card shadow="sm" padding="lg" radius="xl" withBorder>
+          <Card shadow="sm" padding="lg" radius="xl">
             <Card.Section component="a">
               <Image
                 src={galeriwana.src}
@@ -138,7 +122,7 @@ export default function Galeri() {
           >
             <Center>
               <div style={{ color: theme.colors.green[9] }}>
-                <Title>Galeri Wana Khatulistiwa</Title>
+                <Title>Galeri</Title>
               </div>
             </Center>
           </motion.div>
