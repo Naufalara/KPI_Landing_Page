@@ -101,56 +101,7 @@ function App() {
               </>
             }
           />
-          <Route
-            path="/safety_induction"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Safety Induction</div>
-                <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/community"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Safety Induction</div>
-                <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/csr"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Safety Induction</div>
-                <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/akkpi"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Safety Induction</div>
-                <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/giska"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Safety Induction</div>
-                <FooterLinks />
-              </>
-            }
-          />
+
           <Route
             path="/news/1"
             element={
