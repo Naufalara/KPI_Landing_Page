@@ -3,11 +3,11 @@ import {
   Container,
   Flex,
   Group,
+  RingProgress,
   Text,
   Title,
   useMantineTheme,
 } from "@mantine/core";
-import { DonutChart } from "@mantine/charts";
 import { IconPointFilled } from "@tabler/icons-react";
 import { Variants, motion } from "framer-motion";
 
@@ -81,12 +81,15 @@ export default function Toppage() {
               viewport={{ once: true, amount: 0 }}
               variants={cardVariants}
             >
-              <DonutChart
-                data={data}
-                paddingAngle={20}
-                thickness={30}
-                size={250}
+              <RingProgress
                 m="xl"
+                size={300}
+                thickness={30}
+                roundCaps
+                sections={[
+                  { value: 10, color: "yellow" },
+                  { value: 90, color: "white" },
+                ]}
               />
               <Group>
                 <Flex direction="column">
