@@ -18,7 +18,6 @@ import {
   Center,
   AppShell,
   Burger,
-  Checkbox,
 } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import classes from "./newsadmin.module.css";

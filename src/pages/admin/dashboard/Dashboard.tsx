@@ -1,6 +1,5 @@
 import {
   Title,
-  Text,
   Container,
   Center,
   useMantineTheme,

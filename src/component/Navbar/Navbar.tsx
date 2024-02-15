@@ -1,22 +1,12 @@
 import {
-  Group,
-  Code,
-  ScrollArea,
-  Image,
-  Container,
-  Title,
-  useMantineTheme,
-  Center,
-} from "@mantine/core";
-import {
   IconNotes,
   IconGauge,
   IconAdjustments,
   IconLock,
 } from "@tabler/icons-react";
 import { LinksGroup } from "../LinksGroup/NavbarLinksGroup";
-import kpiLogo from "../../../public/kpi_logo.png";
 import classes from "./Navbar.module.css";
+import { Container, ScrollArea } from "@mantine/core";
 
 const mockdata = [
   { label: "Dashboard", icon: IconGauge },
@@ -41,8 +31,6 @@ const mockdata = [
 ];
 
 export function Navbar() {
-  const theme = useMantineTheme();
-
   const links = mockdata.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ));
