@@ -2,7 +2,6 @@ import {
   Card,
   Center,
   Container,
-  SimpleGrid,
   Title,
   Text,
   Image,
@@ -14,6 +13,7 @@ import {
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { Variants, motion } from "framer-motion";
 import { useState } from "react";
+import { Carousel } from "@mantine/carousel";
 
 interface GaleriType {
   src: string;
@@ -64,6 +64,7 @@ const galeriwana: GaleriType[] = [
   },
 ];
 
+// const autoplay = useRef(Autoplay({ delay: 2000 }));
 export default function Galeri() {
   const isMobile = useMediaQuery(`(max-width: ${em(750)})`);
   const theme = useMantineTheme();
@@ -71,41 +72,36 @@ export default function Galeri() {
   const [selectedGaleri, setSelectedGaleri] = useState<GaleriType | null>(null);
   const items = galeriwana.map((galeriwana, index) => {
     return (
-      <motion.div
-        key={index}
-        className="box"
-        whileHover={{ scale: 1.1 }}
-        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={cardVariants}
-        onClick={() => {
-          setSelectedGaleri(galeriwana);
-          open();
-        }}
-      >
-        <div>
-          <Card shadow="sm" padding="lg" radius="xl">
-            <Card.Section component="a">
-              <Image
-                src={galeriwana.src}
-                fit="cover"
-                height={isMobile ? 250 : 350}
-              />
-            </Card.Section>
+      <Carousel.Slide>
+        <motion.div
+          key={index}
+          onClick={() => {
+            setSelectedGaleri(galeriwana);
+            open();
+          }}
+        >
+          <div>
+            <Card shadow="sm" padding="lg" radius="xl">
+              <Card.Section component="a">
+                <Image
+                  src={galeriwana.src}
+                  fit="cover"
+                  height={isMobile ? 250 : 550}
+                />
+              </Card.Section>
 
-            <Group
-              justify="center"
-              mt="md"
-              mb="xs"
-              style={{ color: theme.colors.green[9] }}
-            >
-              <Text fw={700}>{galeriwana.label}</Text>
-            </Group>
-          </Card>
-        </div>
-      </motion.div>
+              <Group
+                justify="center"
+                mt="md"
+                mb="xs"
+                style={{ color: theme.colors.green[9] }}
+              >
+                <Text fw={700}>{galeriwana.label}</Text>
+              </Group>
+            </Card>
+          </div>
+        </motion.div>
+      </Carousel.Slide>
     );
   });
 
@@ -126,9 +122,28 @@ export default function Galeri() {
               </div>
             </Center>
           </motion.div>
-          <SimpleGrid cols={isMobile ? 1 : 3} spacing="xl" pt="xl">
+          <Carousel
+            slideSize="70%"
+            height={isMobile ? 500 : 800}
+            slideGap="md"
+            controlsOffset="xl"
+            controlSize={64}
+            withControls={!isMobile}
+            loop
+            dragFree
+            draggable={false}
+            withIndicators
+            pt="xl"
+            // plugins={[autoplay.current]}
+            // onMouseEnter={autoplay.current.stop}
+            // onMouseLeave={autoplay.current.reset}
+          >
             {items}
-          </SimpleGrid>
+          </Carousel>
+
+          {/* <SimpleGrid cols={isMobile ? 1 : 3} spacing="xl" pt="xl">
+            {items}
+          </SimpleGrid> */}
         </div>
       </Container>
       <Modal

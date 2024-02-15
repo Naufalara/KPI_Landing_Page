@@ -18,6 +18,7 @@ export function SearchBar(props: TextInputProps) {
       placeholder="Search..."
       rightSectionWidth={42}
       color={theme.colors.green[9]}
+      c={theme.colors.green[9]}
       leftSection={
         <IconSearch style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
       }

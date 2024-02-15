@@ -6,6 +6,9 @@ import {
   Input,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
+import "@mantine/core/styles/Input.css";
+import "@mantine/dates/styles.css";
+import "@mantine/notifications/styles.css";
 import { HeaderMenu } from "./component/Header/HeaderMenu";
 import { FooterLinks } from "./component/Footer/FooterLinks";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -24,6 +27,8 @@ import { Navbar } from "./component/Navbar/Navbar";
 import LandingPageEdit from "./pages/admin/landing-page-edit/landing-page-edit";
 import Newsadmin from "./pages/admin/news/Newsadmin";
 import classes from "./App.module.css";
+import "@mantine/tiptap/styles.css";
+import { Notifications } from "@mantine/notifications";
 
 const myColor: MantineColorsTuple = [
   "#e5feee",
@@ -156,7 +161,6 @@ function App() {
             element={
               <>
                 <Flex>
-                  <Navbar />
                   <Dashboard />
                 </Flex>
               </>
@@ -167,7 +171,6 @@ function App() {
             element={
               <>
                 <Flex>
-                  <Navbar />
                   <LandingPageEdit />
                 </Flex>
               </>
@@ -178,8 +181,8 @@ function App() {
             element={
               <>
                 <Flex>
-                  <Navbar />
                   <Newsadmin />
+                  <Notifications />
                 </Flex>
               </>
             }
