@@ -13,10 +13,12 @@ import {
   TextInput,
   Title,
   useMantineTheme,
+  em,
 } from "@mantine/core";
 import classes from "./login.module.css";
 import { useForm } from "@mantine/form";
 import { useNavigate } from "react-router";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function login() {
   const theme = useMantineTheme();
@@ -69,6 +71,7 @@ export default function login() {
                       fit="cover"
                       w={700}
                       height={700}
+                      visibleFrom="sm"
                     />
                   </div>
 
