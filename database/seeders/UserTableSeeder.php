@@ -17,14 +17,14 @@ class UserTableSeeder extends Seeder
             'name' => 'Udin Makarov',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
-            'role' => 'admin',
+            'roleid' => '1',
         ]);
 
         User::create([
             'name' => 'John Doe',
             'email' => 'john.doe@gmail.com',
             'password' => bcrypt('password'),
-            'role' => 'user',
+            'roleid' => '2',
         ]);
     }
 }

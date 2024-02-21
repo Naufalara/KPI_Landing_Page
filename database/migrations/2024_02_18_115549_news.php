@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('roleid');
-            $table->rememberToken();
+            $table->string('judul');
+            $table->string('foto')->nullable;
+            $table->date('tanggal');
+            $table->text('deskripsi');
+            $table->enum('visibilitas', ['public', 'private'])->default('private');
+            $table->string('idkategori');
+            $table->string('iduploader');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('news');
     }
 };
