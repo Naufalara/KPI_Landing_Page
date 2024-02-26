@@ -4,8 +4,6 @@ import {
   Title,
   useMantineTheme,
   Text,
-  SimpleGrid,
-  Center,
   Group,
   Flex,
 } from "@mantine/core";
@@ -40,7 +38,7 @@ export default function Emergency() {
               viewport={{ once: true, amount: 0.3 }}
               variants={xVariants}
             >
-              <Title c={theme.colors.green[9]} ta="right">
+              <Title c={theme.colors.green[9]} ta={ismobile ? "left" : "right"}>
                 Emergency Response Team
               </Title>
             </motion.div>
@@ -69,7 +67,7 @@ export default function Emergency() {
             <Image
               src="https://kpi.co.id/public/upload/image/thumbs/2-ert-1701762402.jpg"
               h={300}
-              w={ismobile ? 200 : 500}
+              w={ismobile ? "40vh" : 500}
             />
           </motion.div>
         </Flex>

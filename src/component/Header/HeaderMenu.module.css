@@ -38,12 +38,10 @@
 }
 
 .logotext {
-  font-size: 16px;
   line-height: 1;
   padding: rem(8px) rem(12px);
   text-decoration: none;
   color: light-dark(var(--mantine-color-green-9), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-sm);
   font-weight: 500;
 }
 

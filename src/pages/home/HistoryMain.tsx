@@ -97,7 +97,7 @@ export default function HistoryMain() {
             viewport={{ once: true, amount: 0.0 }}
             variants={cardVariants}
           >
-            <Button fullWidth color={theme.colors.green[9]}>
+            <Button fullWidth color={theme.colors.green[9]} radius="xl">
               <Anchor underline="never" c="white" href="/history">
                 Lihat selengkapnya
               </Anchor>

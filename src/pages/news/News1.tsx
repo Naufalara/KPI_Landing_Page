@@ -7,47 +7,64 @@ import {
   Image,
   Text,
   Title,
+  TypographyStylesProvider,
   useMantineTheme,
 } from "@mantine/core";
 import classes from "./News.module.css";
 import { IconArrowNarrowLeft } from "@tabler/icons-react";
-import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import api from "../../api";
+import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 // import { animateScroll } from "react-scroll";
 
-const text = [
-  {
-    image: "https://kpi.co.id/public/upload/image/thumbs/konten-1706165522.jpg",
-    title: "Pelatihan Pengelolaan dan Packaging Taman Sehati Kampung MasRamLis",
-    date: "Kamis, 25 Januari 2024",
-    desc: "Pemberdayaan Masyarakat pada Program CSR PT KPI khususnya pada program KolaKPIsang sangat terlihat nyata. Salah satu program pemberdayaan Masyarakat terkait lingkungan dan Kesehatan terlihat pada kegiatan Pelatihan Pengelolaan dan Packaging Kemasan hasil Taman Sehati di Kampung MasRamLi (Masyarakat Sadar Lingkungan) yang berada di Rt.29 Kel. Gunung Telihan Kec. Bontang Barat. \n Setelah Launching Taman Sehati dan Masyarakat sudah menikmati hasil panennya, target selanjutnya adalah bagaimana meningkatkan ekonomi Masyarakat dengan hasil yang sudah didapat. Dengan mengundang narasumber dari Dinas Ketahanan Pangan, Pertanian dan Perikanan serta Dinas Koperasi, UKM dan Perdagangan Kota Bontang, Masyarakat diberikan pelatihan bagaimana cara mengelola dan melakukan packaging yang baik. Dengan Pendidikan dan pelatihan yang berkualitas dapat meningkatkan kesejahteraan Masyarakat dan menciptakan keberlanjutan dalam pengelolaan sumber daya alam sehingga menambah nilai tambah produk yang dihasilkan. \n Diharapkan dengan kegiatan ini Masyarakat meningkatkan wawasan Masyarakat dan dapat menciptakan komunitas yang lebih berkelanjutan dan sejahtera.",
-  },
-];
+interface beritaItems {
+  id: number;
+  judul: string;
+  deskripsi: string;
+  tanggal: string;
+  kategori: string;
+  foto: string;
+}
 
 export default function news1() {
   const theme = useMantineTheme();
+  const [textnews, setText] = useState<beritaItems[]>([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    api
+      .get(`/news/` + id)
+      .then((response) => {
+        setText(response.data);
+        console.log(response.data);
+        scrollToTop;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  const text = textnews;
 
   const items = text.map((item) => {
-    const formattedDesc = item.desc.split("\n").map((paragraph, index) => (
-      <React.Fragment key={index}>
-        {paragraph}
-        <br />
-      </React.Fragment>
-    ));
-
+    const desc = item.deskripsi;
     return (
       <Card shadow="xl" padding="xl" component="a" radius="xl">
         <Container size="lg">
           <Flex direction="column"></Flex>
-          <Image src={item.image} />
+          <Image src={item.foto} />
           <Title c={theme.colors.green[9]} pt="xl">
-            {item.title}
+            {item.judul}
           </Title>
           <Text c="dimmed" size="sm">
-            {item.date}
+            {item.tanggal}
           </Text>
-          <Text style={{ textAlign: "justify" }} pt="xl" size="md">
-            {formattedDesc}
-          </Text>
+          {/* <div>{item.deskripsi}</div> */}
+          <TypographyStylesProvider>
+            <div dangerouslySetInnerHTML={{ __html: desc }} />
+          </TypographyStylesProvider>
         </Container>
       </Card>
     );
@@ -55,7 +72,7 @@ export default function news1() {
 
   return (
     <div>
-      <Container size="xl" className={classes.body}>
+      <Container size="xl" className={classes.body} pt="15vh">
         <Anchor href="/" color={theme.colors.green[9]}>
           <Center inline>
             <IconArrowNarrowLeft color={theme.colors.green[9]} />

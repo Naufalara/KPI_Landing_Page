@@ -45,7 +45,7 @@ export default function () {
         variants={cardVariants}
       >
         <Title ta="center" c={theme.colors.green[9]} pb="xl" pt="xl">
-          Program
+          Program Perusahaan
         </Title>
       </motion.div>
 
