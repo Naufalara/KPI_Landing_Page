@@ -17,9 +17,13 @@ import {
 import classes from "./login.module.css";
 import { useForm } from "@mantine/form";
 import { useNavigate } from "react-router";
+import api from "../../../api";
+import { notifications } from "@mantine/notifications";
+import { useAuth } from "../../../Context";
 
 export default function login() {
   const theme = useMantineTheme();
+  const { setUser, csrfToken } = useAuth();
 
   const login = useForm({
     initialValues: {
@@ -39,20 +43,41 @@ export default function login() {
         if (value.length === 0) {
           return "Password is required";
         }
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-          value
-        )
-          ? null
-          : "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character";
+        return null;
       },
     },
   });
 
   const Navigate = useNavigate();
-
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (login) {
-      Navigate("/admin");
+      await csrfToken();
+      api
+        .post("/login", {
+          email: login.values.email,
+          password: login.values.password,
+        })
+        .then((response) => {
+          // navigate("/admin");
+          // <Nvg to="/admin" />;
+          // window.location.href = "/admin";
+          console.log("Login successful:", response);
+          setUser(response.data.user);
+          notifications.show({
+            title: "Login success",
+            message: "Welcome to KPI Admin Page",
+            color: "green",
+          });
+          Navigate("/admin");
+        })
+        .catch((error) => {
+          console.error("Login failed:", error);
+          notifications.show({
+            title: "Login failed",
+            message: "Invalid email or password",
+            color: "red",
+          });
+        });
     }
   };
   return (
@@ -83,6 +108,7 @@ export default function login() {
 
                     <TextInput
                       label="Email"
+                      withAsterisk
                       placeholder="insert your email"
                       {...login.getInputProps("email")}
                       // required

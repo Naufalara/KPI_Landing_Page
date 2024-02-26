@@ -3,7 +3,6 @@ import { Variants, motion } from "framer-motion";
 import { Title, useMantineTheme } from "@mantine/core";
 import Datafisik from "./Datafisik";
 import Skemaproses from "./Skemaproses";
-import K3lingkungan from "./K3lingkungan";
 import Emergency from "./Emergency";
 import EmergencyDrill from "./EmergencyDrill";
 import K3lingkungan2 from "./K3lingkungan2";

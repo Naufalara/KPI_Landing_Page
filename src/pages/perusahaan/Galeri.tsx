@@ -81,7 +81,12 @@ export default function Galeri() {
           }}
         >
           <div>
-            <Card shadow="sm" padding="lg" radius="xl">
+            <Card
+              shadow="sm"
+              padding="lg"
+              radius="md"
+              style={{ cursor: "zoom-in" }}
+            >
               <Card.Section component="a">
                 <Image
                   src={galeriwana.src}

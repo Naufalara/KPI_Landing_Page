@@ -51,7 +51,7 @@ export default function K3lingkungan() {
               <Image
                 src="https://kpi.co.id/public/upload/image/thumbs/dsc08237-1701762423.jpg"
                 h={300}
-                w={ismobile ? 200 : 500}
+                w={ismobile ? "40vh" : 500}
               />
             </motion.div>
             <Group>

@@ -1,36 +1,43 @@
-import {
-  IconNotes,
-  IconGauge,
-  IconAdjustments,
-  IconLock,
-} from "@tabler/icons-react";
+import { IconNotes, IconGauge, IconLock } from "@tabler/icons-react";
 import { LinksGroup } from "../LinksGroup/NavbarLinksGroup";
 import classes from "./Navbar.module.css";
 import { Container, ScrollArea } from "@mantine/core";
+import { useEffect, useState } from "react";
+import api from "../../api";
 
-const mockdata = [
-  { label: "Dashboard", icon: IconGauge },
-  {
-    label: "News",
-    icon: IconNotes,
-    links: [{ label: "News Admin", link: "/news-admin" }],
-  },
-  {
-    label: "Landing Page",
-    icon: IconAdjustments,
-    links: [{ label: "Edit", link: "/landing-page-edit" }],
-  },
-  {
-    label: "Settings",
-    icon: IconLock,
-    links: [
-      { label: "Account", link: "/accoount" },
-      { label: "Logout", link: "/login" },
-    ],
-  },
-];
+export function Navbar(props: { user: any }) {
+  const [mockdata, setMockdata] = useState<any[]>([]);
+  const user = props.user;
 
-export function Navbar() {
+  // console.log("user dari navbar", user);
+
+  useEffect(() => {
+    // Fungsi untuk memuat data setelah delay
+    const loadDataWithDelay = () => {
+      // Tunggu 500ms sebelum memuat data
+      setTimeout(() => {
+        // Pastikan user.data telah terisi sebelum melanjutkan
+        if (user && user.data && user.data.roleid) {
+          const roleId = user.data.roleid;
+          api
+            .get(`/user-login-permission?roleid=${roleId}`)
+            .then((response) => {
+              const permissions = response.data.map(
+                (permission: any) => permission.name
+              );
+              setMockdata(getMockData(permissions));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      }, 500);
+    };
+
+    // Panggil fungsi untuk memuat data setelah delay
+    loadDataWithDelay();
+  }, [user]);
+
   const links = mockdata.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ));
@@ -48,50 +55,86 @@ export function Navbar() {
   );
 }
 
-// "use client";
+function getMockData(userPermission: string[]): any[] {
+  if (
+    userPermission.includes("index-user") &&
+    userPermission.includes("index-news") &&
+    userPermission.includes("role-list")
+  ) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
 
-// import { ActionIcon, Box, Drawer, Stack, TextInput } from "@mantine/core";
-// import { useDisclosure } from "@mantine/hooks";
-// import { IconSearch, IconSettings } from "@tabler/icons-react";
-// import classes from "./Navbar.module.css";
-// import { DirectionSwitcher } from "../DirectionSwitcher/DirectionSwitcher";
-// import Logo from "../../../public/kpi_logo.png";
-// import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-
-// interface Props {
-//   burger?: React.ReactNode;
-// }
-
-// export function Navbar({ burger }: Props) {
-//   const [opened, { close, open }] = useDisclosure(false);
-
-//   return (
-//     <header className={classes.header}>
-//       {burger && burger}
-//       {/* <Logo /> */}
-//       <Box style={{ flex: 1 }} />
-//       <TextInput
-//         placeholder="Search"
-//         variant="filled"
-//         leftSection={<IconSearch size="0.8rem" />}
-//         style={{}}
-//       />
-//       <ActionIcon onClick={open} variant="subtle">
-//         <IconSettings size="1.25rem" />
-//       </ActionIcon>
-
-//       <Drawer
-//         opened={opened}
-//         onClose={close}
-//         title="Settings"
-//         position="right"
-//         transitionProps={{ duration: 0 }}
-//       >
-//         <Stack gap="lg">
-//           <ThemeSwitcher />
-//           <DirectionSwitcher />
-//         </Stack>
-//       </Drawer>
-//     </header>
-//   );
-// }
+      {
+        label: "News",
+        icon: IconNotes,
+        links: [{ label: "News Admin", link: "/news-admin" }],
+      },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [
+          { label: "Account", link: "/account" },
+          { label: "Role & Permission", link: "/role-permission" },
+        ],
+      },
+    ];
+  } else if (userPermission.includes("index-news")) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "News",
+        icon: IconNotes,
+        links: [{ label: "News Admin", link: "/news-admin" }],
+      },
+    ];
+  } else if (userPermission.includes("role-list")) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [{ label: "Role & Permission", link: "/role-permission" }],
+      },
+    ];
+  } else if (
+    userPermission.includes("index-user") &&
+    userPermission.includes("index-news")
+  ) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [
+          { label: "Account", link: "/account" },
+          { label: "Role & Permission", link: "/role-permission" },
+        ],
+      },
+      {
+        label: "News",
+        icon: IconNotes,
+        links: [{ label: "News Admin", link: "/news-admin" }],
+      },
+    ];
+  } else if (userPermission.includes("index-user")) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [{ label: "Account", link: "/account" }],
+      },
+    ];
+  } else if (userPermission.includes("role-list")) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [{ label: "Role & Permission", link: "/role-permission" }],
+      },
+    ];
+  } else {
+    return [];
+  }
+}

@@ -26,21 +26,23 @@ export function FooterLinks() {
   return (
     <footer className={classes.footer}>
       <Container className={classes.inner}>
-        <div className={classes.logo}>
-          <div style={{ display: "flex" }}>
-            <Center inline>
-              <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
-              <Text
-                c="dimmed"
-                className={classes.logotext}
-                style={{ marginLeft: "10px" }}
-                size="sm"
-              >
-                PT. Kaltim Parna Industri
-              </Text>
-            </Center>
+        <Flex justify={ismobile ? "center" : "flex-start"}>
+          <div className={classes.logo}>
+            <div style={{ display: "flex" }}>
+              <Center inline>
+                <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
+                <Text
+                  c="dimmed"
+                  className={classes.logotext}
+                  style={{ marginLeft: "10px" }}
+                  size="sm"
+                >
+                  PT. Kaltim Parna Industri
+                </Text>
+              </Center>
+            </div>
           </div>
-        </div>
+        </Flex>
 
         <div>
           <Space h="md" />
@@ -65,7 +67,7 @@ export function FooterLinks() {
                 Jalan NPK Pelangi RT.52 Kelurahan Loktuan Kecamatan Bontang
                 Utara Kota Bontang 75314 Kalimantan Timur
               </Text>
-              <Flex>
+              <Flex justify={ismobile ? "center" : "flex-start"}>
                 <Center>
                   <IconPhone size="1rem" stroke={1.5} />
                   <Space w="xs" />
@@ -88,7 +90,7 @@ export function FooterLinks() {
                 Kawasan Industri PT Kaltim Industrial Estate Guntung, Bontang
                 Utara, Kota Bontang 75314 Bontang, Kalimantan Timur
               </Text>
-              <Flex>
+              <Flex justify={ismobile ? "center" : "flex-start"}>
                 <Center>
                   <IconPhone size="1rem" stroke={1.5} />
                   <Space w="xs" />
@@ -117,7 +119,7 @@ export function FooterLinks() {
                 Metropolitan Kuningan Superblock Jl. H.R Rasuna Said kav.1
                 Jakarta Selatan 12980
               </Text>
-              <Flex>
+              <Flex justify={ismobile ? "center" : "flex-start"}>
                 <Center>
                   <IconPhone size="1rem" stroke={1.5} />
                   <Space w="xs" />

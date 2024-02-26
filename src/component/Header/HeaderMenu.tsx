@@ -84,7 +84,7 @@ export function HeaderMenu() {
             <a href={link.link} className={classes.link}>
               <Center visibleFrom="md">
                 <UnstyledButton className={classes.linkLabel}>
-                  <Text size="sm" fw={700}>
+                  <Text size="md" fw={700}>
                     {link.label}
                   </Text>
                 </UnstyledButton>
@@ -102,7 +102,7 @@ export function HeaderMenu() {
     return (
       <a key={link.label} href={link.link} className={classes.link}>
         <UnstyledButton visibleFrom="md">
-          <Text size="sm" fw={700}>
+          <Text size="md" fw={700}>
             {link.label}
           </Text>
         </UnstyledButton>
@@ -197,13 +197,13 @@ export function HeaderMenu() {
             <Group justify="space-between" visibleFrom="md">
               <Anchor variant="color" href="/" underline="never">
                 <Center inline pt={5}>
-                  <img src={kpiLogo} alt="KPI Logo" style={{ width: "32px" }} />
+                  <img src={kpiLogo} alt="KPI Logo" style={{ width: "48px" }} />
                   <Text
                     className={classes.logotext}
                     style={{
                       marginLeft: "10px",
                     }}
-                    size="sm"
+                    size="md"
                     fw={700}
                   >
                     PT. Kaltim Parna Industri

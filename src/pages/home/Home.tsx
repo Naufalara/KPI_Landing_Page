@@ -1,7 +1,6 @@
 import Certificate from "./Certificate";
 import HistoryMain from "./HistoryMain";
 import News from "./News";
-import Topbody from "./Topbody";
 import Topbody2 from "./Topbody2";
 import Visimisi from "./Visimisi";
 

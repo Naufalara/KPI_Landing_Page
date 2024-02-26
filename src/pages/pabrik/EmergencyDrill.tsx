@@ -4,8 +4,6 @@ import {
   Title,
   useMantineTheme,
   Text,
-  SimpleGrid,
-  Stack,
   Flex,
   Group,
 } from "@mantine/core";
@@ -44,7 +42,7 @@ export default function EmergencyDrill() {
             <Image
               src="https://kpi.co.id/public/upload/image/thumbs/ert-2019-273-1701762387.jpg"
               h={300}
-              w={ismobile ? 300 : 500}
+              w={ismobile ? "40vh" : 500}
             />
           </motion.div>
           <Group>

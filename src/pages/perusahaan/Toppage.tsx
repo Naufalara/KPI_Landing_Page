@@ -3,11 +3,15 @@ import {
   Container,
   Flex,
   Group,
+  List,
+  ListItem,
   RingProgress,
   Text,
   Title,
+  em,
   useMantineTheme,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconPointFilled } from "@tabler/icons-react";
 import { Variants, motion } from "framer-motion";
 
@@ -18,6 +22,7 @@ export const data = [
 
 export default function Toppage() {
   const theme = useMantineTheme();
+  const ismobile = useMediaQuery(`(max-width: ${em(750)})`);
   const cardVariants: Variants = {
     offscreen: {
       y: 300,
@@ -61,7 +66,7 @@ export default function Toppage() {
         </motion.div>
       </div>
       <div style={{ backgroundColor: theme.colors.green[9] }}>
-        <Container pb="xl" pt="xl">
+        <Container pt="xl">
           <motion.div
             className="card-container"
             initial="offscreen"
@@ -73,18 +78,19 @@ export default function Toppage() {
               <Title ta="center">Komposisi Pemegang Saham</Title>
             </Group>
           </motion.div>
-          <Center>
-            <motion.div
-              className="card-container"
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0 }}
-              variants={cardVariants}
-            >
+
+          <motion.div
+            className="card-container"
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0 }}
+            variants={cardVariants}
+          >
+            <Center>
               <RingProgress
                 m="xl"
-                size={300}
-                thickness={30}
+                size={ismobile ? 100 : 300}
+                thickness={ismobile ? 10 : 30}
                 roundCaps
                 sections={[
                   { value: 10, color: "yellow" },
@@ -93,23 +99,24 @@ export default function Toppage() {
               />
               <Group>
                 <Flex direction="column">
-                  <Group c="white">
-                    <IconPointFilled />
-                    <Text size="sm" c="white">
-                      PT Parna Raya
-                    </Text>
-                  </Group>
-
-                  <Group c="yellow.6">
-                    <IconPointFilled />
-                    <Text size="sm" c="white">
-                      Bapak Marihad Simon Simbolon
-                    </Text>
-                  </Group>
+                  <List>
+                    <List.Item c="white" icon={<IconPointFilled />}>
+                      <Text size="sm" c="white">
+                        PT Parna Raya{" "}
+                        <span style={{ fontWeight: 700 }}>90%</span>
+                      </Text>
+                    </List.Item>
+                    <ListItem c="yellow.6" icon={<IconPointFilled />}>
+                      <Text size="sm" c="white">
+                        Bapak Marihad Simon Simbolon
+                        <span style={{ fontWeight: 700 }}> 10%</span>
+                      </Text>
+                    </ListItem>
+                  </List>
                 </Flex>
               </Group>
-            </motion.div>
-          </Center>
+            </Center>
+          </motion.div>
         </Container>
       </div>
     </>

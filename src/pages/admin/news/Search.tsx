@@ -42,7 +42,7 @@ import { createFormContext } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import { Dropzone, FileWithPath, IMAGE_MIME_TYPE } from "@mantine/dropzone";
 import api from "../../../api";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
 
 interface NewsItem {
@@ -331,7 +331,7 @@ function FormField() {
   );
 }
 
-export default function Newsadmin() {
+export default function Search() {
   function chunk<T>(array: T[], size: number): T[][] {
     if (!array.length) {
       return [];
@@ -343,7 +343,7 @@ export default function Newsadmin() {
 
   const [filteredData, setFilteredData] = useState("");
 
-  // console.log("filteredData:", filteredData);
+  console.log("filteredData:", filteredData);
 
   const theme = useMantineTheme();
   const [activePage, setPage] = useState(1);
@@ -353,9 +353,11 @@ export default function Newsadmin() {
 
   const [index, setIndex] = useState<NewsItem[]>([]);
 
+  const { searchdata } = useParams();
+
   useEffect(() => {
     api
-      .get("/news-admin")
+      .get("/search/" + searchdata)
       .then((response) => {
         // console.log("Response from API:", response.data); // Tampilkan hasil API ke konsol
         setIndex(response.data);
@@ -365,15 +367,12 @@ export default function Newsadmin() {
       });
   }, []);
   const handleSearch = () => {
-    api
-      .get("/search/" + filteredData)
-      .then((response) => {
-        console.log("Response from API:", response.data);
-        Navigate("/search/" + filteredData);
-      })
-      .catch((error) => {
-        console.error("Error searching data:", error);
-      });
+    if (filteredData) {
+      Navigate("/search/" + filteredData);
+      window.location.reload();
+    } else {
+      Navigate("/news-admin");
+    }
   };
 
   const newsdata = index;
@@ -386,45 +385,18 @@ export default function Newsadmin() {
   };
 
   const handleEdit = (id: number) => {
-    api
-      .get("/edit/" + id)
-      .then(() => {
-        Navigate("/edit/" + id);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        notifications.show({
-          title: "Berita tidak bisa diubah",
-          message: `Berita dengan id ${id} tidak bisa diubah`,
-          color: "red",
-        });
-      });
+    api.get("/edit/" + id).then(() => {
+      Navigate("/edit/" + id);
+    });
   };
 
   const [idselected, setidselected] = useState(0);
 
   const handleDelete = () => {
-    api
-      .post("/delete/" + idselected)
-      .then(() => {
-        notifications.show({
-          title: "Berita berhasil dihapus",
-          message: `Berita dengan id ${idselected} berhasil dihapus`,
-          color: "green",
-        });
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.error("Error delete data:", error);
-        notifications.show({
-          title: "Gagal",
-          message: `Gagal menghapus berita`,
-          color: "red",
-        });
-        setTimeout(() => {
-          redirect("/news-admin");
-        }, 2000);
-      });
+    api.post("/delete/" + idselected).then(() => {
+      window.location.reload();
+    }),
+      alert("Data berhasil dihapus");
   };
 
   const handleopen = (id: number) => {
@@ -470,10 +442,10 @@ export default function Newsadmin() {
       <Table.Td>{row.uploader}</Table.Td>
       <Table.Td>
         <Stack>
-          <Button color="yellow" onClick={() => handleEdit(row.id)} radius="xl">
+          <Button color="yellow" onClick={() => handleEdit(row.id)}>
             Edit
           </Button>
-          <Button color="red" onClick={() => handleopen(row.id)} radius="xl">
+          <Button color="red" onClick={() => handleopen(row.id)}>
             Delete
           </Button>
         </Stack>
@@ -583,7 +555,7 @@ export default function Newsadmin() {
   return (
     <div className={classes.body}>
       <Container size="default" pt="md">
-        <Title c={theme.colors.green[9]}>News Dashboard</Title>
+        <Title c={theme.colors.green[9]}>News Admin Dashboard</Title>
         <Tabs defaultValue="index" color={theme.colors.green[9]}>
           <Tabs.List c={theme.colors.green[9]} justify="flex-start">
             <Tabs.Tab value="index" fw={700}>
@@ -631,7 +603,7 @@ export default function Newsadmin() {
               }
             />
             <Center>
-              <Table.ScrollContainer minWidth="50vw" w="90vw" h="65vh">
+              <Table.ScrollContainer minWidth="50vw" w="70vw" h="65vh">
                 <Table stickyHeader highlightOnHover verticalSpacing="sm">
                   <Table.Thead>
                     <Table.Tr c={theme.colors.green[9]}>

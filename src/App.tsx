@@ -2,7 +2,6 @@ import {
   MantineProvider,
   createTheme,
   MantineColorsTuple,
-  Flex,
   Input,
 } from "@mantine/core";
 import "@mantine/core/styles.css";
@@ -17,18 +16,23 @@ import News1 from "./pages/news/News1";
 import { NotFoundImage } from "./pages/notfound/NotFoundImage";
 import History from "./pages/history/History";
 import Affixbottom from "./component/Affix/Affixbottom";
-import News2 from "./pages/news/News2";
 import Perusahaan from "./pages/perusahaan/Perusahaan";
 import "@mantine/charts/styles.css";
 import Pabrik from "./pages/pabrik/Pabrik";
 import Login from "./pages/admin/login/login";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
-import { Navbar } from "./component/Navbar/Navbar";
 import LandingPageEdit from "./pages/admin/landing-page-edit/landing-page-edit";
 import Newsadmin from "./pages/admin/news/Newsadmin";
 import classes from "./App.module.css";
 import "@mantine/tiptap/styles.css";
 import { Notifications } from "@mantine/notifications";
+import AdminLayout from "./component/Layout/AdminLayout";
+import Edit from "./pages/admin/news/Edit";
+import Search from "./pages/admin/news/Search";
+import Account from "./pages/admin/Account/Account";
+import AccountEdit from "./pages/admin/Account/AccountEdit";
+import Role from "./pages/admin/Account/Role";
+import RoleEdit from "./pages/admin/Account/RoleEdit";
 
 const myColor: MantineColorsTuple = [
   "#e5feee",
@@ -83,6 +87,7 @@ function App() {
                 <HeaderMenu />
                 <Home />
                 <FooterLinks />
+                <Affixbottom />
               </>
             }
           />
@@ -93,36 +98,17 @@ function App() {
                 <HeaderMenu />
                 <History />
                 <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/docs"
-            element={
-              <>
-                <HeaderMenu />
-                <div>Docs</div>
-                <FooterLinks />
+                <Affixbottom />
               </>
             }
           />
 
           <Route
-            path="/news/1"
+            path="/news/:id"
             element={
               <>
                 <HeaderMenu />
                 <News1 />
-                <FooterLinks />
-              </>
-            }
-          />
-          <Route
-            path="/news/2"
-            element={
-              <>
-                <HeaderMenu />
-                <News2 />
                 <FooterLinks />
               </>
             }
@@ -134,6 +120,7 @@ function App() {
                 <HeaderMenu />
                 <Perusahaan />
                 <FooterLinks />
+                <Affixbottom />
               </>
             }
           />
@@ -144,6 +131,7 @@ function App() {
                 <HeaderMenu />
                 <Pabrik />
                 <FooterLinks />
+                <Affixbottom />
               </>
             }
           />
@@ -153,43 +141,84 @@ function App() {
               <>
                 <HeaderMenu />
                 <Login />
+                <Notifications />
               </>
             }
           />
           <Route
             path="/admin"
             element={
-              <>
-                <Flex>
-                  <Dashboard />
-                </Flex>
-              </>
+              <AdminLayout>
+                <Dashboard />
+              </AdminLayout>
             }
           />
           <Route
             path="/landing-page-edit"
             element={
-              <>
-                <Flex>
-                  <LandingPageEdit />
-                </Flex>
-              </>
+              <AdminLayout>
+                <LandingPageEdit />
+              </AdminLayout>
             }
           />
           <Route
             path="/news-admin"
             element={
-              <>
-                <Flex>
-                  <Newsadmin />
-                  <Notifications />
-                </Flex>
-              </>
+              <AdminLayout>
+                <Newsadmin />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <AdminLayout>
+                <Edit />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/search/:searchdata"
+            element={
+              <AdminLayout>
+                <Search />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/account"
+            element={
+              <AdminLayout>
+                <Account />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/edit-account/:id"
+            element={
+              <AdminLayout>
+                <AccountEdit />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/role-permission"
+            element={
+              <AdminLayout>
+                <Role />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/role-edit/:id"
+            element={
+              <AdminLayout>
+                <RoleEdit />
+              </AdminLayout>
             }
           />
           <Route path="*" element={<NotFoundImage />} />
         </Routes>
-        <Affixbottom />
       </MantineProvider>
     </Router>
   );
