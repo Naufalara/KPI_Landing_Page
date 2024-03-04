@@ -19,11 +19,16 @@
    ```sh
    yarn install
    ```
-3. **To start development mode, run:**
+3. **Change base url from api**
+
+   - open api.tsx
+   - change the base url
+
+4. **To start development mode, run:**
    ```sh
    yarn dev
    ```
-4. **To build the project, run:**
+5. **To build the project, run:**
 
    ```sh
    yarn build
