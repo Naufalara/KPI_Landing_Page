@@ -21,7 +21,6 @@ import "@mantine/charts/styles.css";
 import Pabrik from "./pages/pabrik/Pabrik";
 import Login from "./pages/admin/login/login";
 import Dashboard from "./pages/admin/dashboard/Dashboard";
-import LandingPageEdit from "./pages/admin/landing-page-edit/landing-page-edit";
 import Newsadmin from "./pages/admin/news/Newsadmin";
 import classes from "./App.module.css";
 import "@mantine/tiptap/styles.css";
@@ -33,6 +32,7 @@ import Account from "./pages/admin/Account/Account";
 import AccountEdit from "./pages/admin/Account/AccountEdit";
 import Role from "./pages/admin/Account/Role";
 import RoleEdit from "./pages/admin/Account/RoleEdit";
+import AccountSearch from "./pages/admin/Account/Account-search";
 
 const myColor: MantineColorsTuple = [
   "#e5feee",
@@ -153,14 +153,7 @@ function App() {
               </AdminLayout>
             }
           />
-          <Route
-            path="/landing-page-edit"
-            element={
-              <AdminLayout>
-                <LandingPageEdit />
-              </AdminLayout>
-            }
-          />
+
           <Route
             path="/news-admin"
             element={
@@ -190,6 +183,14 @@ function App() {
             element={
               <AdminLayout>
                 <Account />
+              </AdminLayout>
+            }
+          />
+          <Route
+            path="/account/search/:searchdata"
+            element={
+              <AdminLayout>
+                <AccountSearch />
               </AdminLayout>
             }
           />

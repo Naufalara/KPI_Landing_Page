@@ -47,7 +47,8 @@
 }
 
 .text {
-  max-width: rem(600px);
+  /* max-width: rem(1000px); */
+  font-size: rem(25px);
   color: var(--mantine-color-white);
 }
 

@@ -28,7 +28,7 @@ export default function EmergencyDrill() {
   const ismobile = useMediaQuery(`(max-width: 750px)`);
   return (
     <>
-      <Container>
+      <Container pt="xl" pb="xl">
         <Flex
           gap={20}
           direction={ismobile ? "column-reverse" : "row"}

@@ -6,6 +6,7 @@ import {
   Title,
   em,
   rem,
+  Text,
 } from "@mantine/core";
 import { Link } from "react-scroll";
 import classes from "./Home.module.css";
@@ -23,7 +24,7 @@ import { useState } from "react";
 
 export default function Topbody() {
   const baseText =
-    "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia" as string;
+    "PT Kaltim Parna Industri adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata kelola korporasi yang baik, serta berperan dalam pembangunan ekonomi nasional. KPI mampu berkompetisi dalam skala regional maupun internasional dan berorientasi pada kepentingan pelanggan serta berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan" as string;
 
   // const baseText =
   //   "PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata kelola korporasi yang baik, serta berperan dalam pembangunan ekonomi nasional. KPI mampu berkompetisi dalam skala regional maupun internasional dan berorientasi pada kepentingan pelanggan serta berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan" as string;
@@ -72,22 +73,40 @@ export default function Topbody() {
             <Title
               order={3}
               className={classes.title}
-              pt={isMobile ? rem(200) : rem(400)}
+              pt={isMobile ? rem(50) : rem(200)}
             >
-              PT. Kaltim Parna Industri
+              {/* PT Kaltim Parna Industri */}
             </Title>
             <Spoiler
               maxHeight={120}
               showLabel="Show more"
               hideLabel="Hide"
               pb="md"
+
+              // fw={700}
             >
-              <span className={classes.text}>
-                <motion.span>{displayText}</motion.span>
-              </span>
+              <span></span>
             </Spoiler>
+            <Text className={classes.text} pb="md">
+              {/* <motion.span>{displayText}</motion.span> */}
+              PT Kaltim Parna Industri adalah salah satu perusahaan Penanaman
+              Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous
+              Ammonia di Indonesia.
+            </Text>
+            <Text className={classes.text} pb="md">
+              {/* <motion.span>{displayText}</motion.span> */}
+              KPI dikelola secara profesional oleh putra-putri terbaik bangsa
+              Indonesia dan berpedoman pada tata kelola korporasi yang baik,
+              serta berperan dalam pembangunan ekonomi nasional.
+            </Text>
+            <Text className={classes.text}>
+              {/* <motion.span>{displayText}</motion.span> */}
+              KPI mampu berkompetisi dalam skala regional maupun internasional
+              dan berkomitmen untuk memberikan pelayanan terbaik kepada
+              pelanggan
+            </Text>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -117,7 +136,7 @@ export default function Topbody() {
                 </Center>
               </motion.div>
             </Button>
-          </motion.div>
+          </motion.div> */}
         </div>
       </Container>
     </div>

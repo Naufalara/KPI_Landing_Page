@@ -78,6 +78,60 @@ function getMockData(userPermission: string[]): any[] {
         ],
       },
     ];
+  } else if (
+    userPermission.includes("index-user") &&
+    userPermission.includes("index-news")
+  ) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+
+      {
+        label: "News",
+        icon: IconNotes,
+        links: [{ label: "News Admin", link: "/news-admin" }],
+      },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [
+          { label: "Account", link: "/account" },
+          { label: "Role & Permission", link: "/role-permission" },
+        ],
+      },
+    ];
+  } else if (
+    userPermission.includes("role-list") &&
+    userPermission.includes("index-news")
+  ) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+
+      {
+        label: "News",
+        icon: IconNotes,
+        links: [{ label: "News Admin", link: "/news-admin" }],
+      },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [{ label: "Role & Permission", link: "/role-permission" }],
+      },
+    ];
+  } else if (
+    userPermission.includes("index-user") &&
+    userPermission.includes("role-list")
+  ) {
+    return [
+      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
+      {
+        label: "Settings",
+        icon: IconLock,
+        links: [
+          { label: "Account", link: "/account" },
+          { label: "Role & Permission", link: "/role-permission" },
+        ],
+      },
+    ];
   } else if (userPermission.includes("index-news")) {
     return [
       { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
@@ -96,26 +150,6 @@ function getMockData(userPermission: string[]): any[] {
         links: [{ label: "Role & Permission", link: "/role-permission" }],
       },
     ];
-  } else if (
-    userPermission.includes("index-user") &&
-    userPermission.includes("index-news")
-  ) {
-    return [
-      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
-      {
-        label: "Settings",
-        icon: IconLock,
-        links: [
-          { label: "Account", link: "/account" },
-          { label: "Role & Permission", link: "/role-permission" },
-        ],
-      },
-      {
-        label: "News",
-        icon: IconNotes,
-        links: [{ label: "News Admin", link: "/news-admin" }],
-      },
-    ];
   } else if (userPermission.includes("index-user")) {
     return [
       { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
@@ -123,15 +157,6 @@ function getMockData(userPermission: string[]): any[] {
         label: "Settings",
         icon: IconLock,
         links: [{ label: "Account", link: "/account" }],
-      },
-    ];
-  } else if (userPermission.includes("role-list")) {
-    return [
-      { label: "Dashboard", icon: IconGauge, link: "/dashboard" },
-      {
-        label: "Settings",
-        icon: IconLock,
-        links: [{ label: "Role & Permission", link: "/role-permission" }],
       },
     ];
   } else {

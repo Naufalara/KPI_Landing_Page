@@ -4,6 +4,7 @@ import {
   Group,
   Image,
   Stack,
+  Stepper,
   Text,
   Title,
   em,
@@ -41,25 +42,25 @@ export default function Program() {
           viewport={{ once: true, amount: 0.3 }}
           variants={cardVariants}
         >
-          <Container c={theme.colors.green[9]}>
+          <Container c={theme.colors.green[9]} pb="xl">
             <Flex
               gap={20}
               direction={ismobile ? "column" : "row"}
-              align="center"
+              // align="center"
             >
               <Image
                 src="https://kpi.co.id/public/upload/image/csr-1.jpg"
                 h={300}
                 w={ismobile ? 200 : 500}
               />
-              <Group>
+              <Stack>
                 <Title>Program Penghijauan dan Lingkungan</Title>
                 <Text>
                   Konsep dasar program ini adalah memupuk kesadaran sekaligus
                   perilaku nyata masyarakat mengenai betapa pentingnya
                   melestarikan lingkungan hidup.
                 </Text>
-              </Group>
+              </Stack>
             </Flex>
           </Container>
         </motion.div>
@@ -74,9 +75,9 @@ export default function Program() {
             <Flex
               gap={20}
               direction={ismobile ? "column-reverse" : "row"}
-              align="center"
+              // align="center"
             >
-              <Group>
+              <Stack>
                 <Title ta={ismobile ? "left" : "right"}>
                   Program Pendidikan dan Pelatihan
                 </Title>
@@ -86,7 +87,7 @@ export default function Program() {
                   utama bagi masyarakat sehingga kurang memperhatikan
                   pendidikan.
                 </Text>
-              </Group>
+              </Stack>
               <Image
                 src="https://kpi.co.id/public/upload/image/csr-2.jpg"
                 h={300}
@@ -106,53 +107,28 @@ export default function Program() {
             <Flex
               gap={20}
               direction={ismobile ? "column" : "row"}
-              align="center"
+              // align="center"
             >
               <Image
                 src="https://kpi.co.id/public/upload/image/wana-khatulistiwa2-2019-1623392921.jpg"
                 h={300}
                 w={ismobile ? 200 : 500}
               />
-              <Group>
-                <Title ta={ismobile ? "left" : "left"}>Wana Khatulistiwa</Title>
+              <Stack>
+                <Title ta={ismobile ? "left" : "left"}>
+                  Hutan Kota Wana Khatulistiwa
+                </Title>
                 <Text ta={ismobile ? "left" : "left"}>
                   Wana Khatulistiwa, lahan seluas 8 ha yang dikelola oleh KPI
-                  sejak 2012, telah menanam sekitar 3.500 pohon termasuk
-                  Bangkirai, Ulin, Gaharu, Pulai, Meranti, Mahoni, serta buah
-                  lokal seperti Manggis, Lai, Rambutan, Durian, Wanyi, Pasak
-                  Bumi hingga akhir 2016. Saat ini, perawatan tanaman dilakukan
-                  dengan menyiangi rumput, memupuk, dan menyiram pada musim
-                  kering. Infrastruktur termasuk sumur air, tandon penyimpanan
-                  air bersih, serta Gazebo 6x4 meter dari kayu ulin bekas,
-                  dibangun oleh petugas secara swadaya untuk pengembangan tempat
-                  belajar ekstrakurikuler siswa tentang tanaman asli Kalimantan.
-                  Koleksi tanaman direncanakan akan ditambah 1000 pohon pada
-                  2017, dengan fokus pada tanaman rawa dan herbal.
-                </Text>
-              </Group>
-            </Flex>
-          </Container>
-        </motion.div>
-        <motion.div
-          className="card-container"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={cardVariants}
-        >
-          <Container pt="xl" c={theme.colors.green[9]} pb="xl">
-            <Flex
-              gap={20}
-              direction={ismobile ? "column-reverse" : "row"}
-              align="center"
-            >
-              <Stack align="flex-end">
-                <Title>CSR</Title>
-                <Text ta={ismobile ? "left" : "right"}>
-                  Lorem ipsum dolor sit amet bla bla bla bla mueeheheheheh
+                  sejak 2012 dengan koleksi tanaman yang variatif sebanyak
+                  kurang lebih 4.500 pohon termasuk Bangkirai, Ulin, Gaharu,
+                  Pulai, Meranti, Mahoni, dan buah-buahan lokal. Perawatan
+                  tanaman dilakukan secara berkala oleh petugas, termasuk
+                  infrastruktur sumur, penyimpanan air bersih, serta Gazebo yang
+                  dimanfaatkan sebagai tempat belajar ekstrakurikuler siswa
+                  tentang tanaman asli Kalimantan.
                 </Text>
               </Stack>
-              <Image src="" alt="ehe" h={300} w={ismobile ? 200 : 500} />
             </Flex>
           </Container>
         </motion.div>

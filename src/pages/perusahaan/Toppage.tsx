@@ -14,6 +14,7 @@ import {
 import { useMediaQuery } from "@mantine/hooks";
 import { IconPointFilled } from "@tabler/icons-react";
 import { Variants, motion } from "framer-motion";
+import { DonutChart } from "@mantine/charts";
 
 export const data = [
   { name: "PT Parna Raya", value: 90, color: "white" },
@@ -46,20 +47,32 @@ export default function Toppage() {
           className="card-container"
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
           transition={{ delay: 0.5 }}
         >
-          <Container pb="xl" pt="xl" style={{ textAlign: "justify" }}>
-            <Text c={theme.colors.green[9]}>
-              PT Kaltim Parna Industri (KPI) adalah salah satu perusahaan
-              Penanaman Modal Dalam Negeri (PMDN) terbesar yang memproduksi
-              Anhydrous Ammonia di Indonesia. KPI dikelola secara profesional
-              oleh putra-putri terbaik bangsa Indonesia dan berpedoman pada tata
-              kelola korporasi yang baik, serta berperan dalam pembangunan
-              ekonomi nasional. KPI mampu berkompetisi dalam skala regional
-              maupun internasional dan berorientasi pada kepentingan pelanggan
-              serta berkomitmen untuk memberikan pelayanan terbaik kepada
+          <Container
+            pb="xl"
+            pt="xl"
+            style={{ textAlign: "justify" }}
+            c={theme.colors.green[9]}
+          >
+            <Text pb="md">
+              {/* <motion.span>{displayText}</motion.span> */}
+              PT Kaltim Parna Industri adalah salah satu perusahaan Penanaman
+              Modal Dalam Negeri (PMDN) terbesar yang memproduksi Anhydrous
+              Ammonia di Indonesia.
+            </Text>
+            <Text pb="md">
+              {/* <motion.span>{displayText}</motion.span> */}
+              KPI dikelola secara profesional oleh putra-putri terbaik bangsa
+              Indonesia dan berpedoman pada tata kelola korporasi yang baik,
+              serta berperan dalam pembangunan ekonomi nasional.
+            </Text>
+            <Text>
+              {/* <motion.span>{displayText}</motion.span> */}
+              KPI mampu berkompetisi dalam skala regional maupun internasional
+              dan berkomitmen untuk memberikan pelayanan terbaik kepada
               pelanggan
             </Text>
           </Container>
@@ -87,7 +100,7 @@ export default function Toppage() {
             variants={cardVariants}
           >
             <Center>
-              <RingProgress
+              {/* <RingProgress
                 m="xl"
                 size={ismobile ? 100 : 300}
                 thickness={ismobile ? 10 : 30}
@@ -96,6 +109,13 @@ export default function Toppage() {
                   { value: 10, color: "yellow" },
                   { value: 90, color: "white" },
                 ]}
+              /> */}
+              <DonutChart
+                data={data}
+                paddingAngle={20}
+                thickness={30}
+                size={250}
+                m="xl"
               />
               <Group>
                 <Flex direction="column">
