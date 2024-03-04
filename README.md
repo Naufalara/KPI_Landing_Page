@@ -19,7 +19,7 @@
    ```sh
    yarn install
    ```
-3. **Change base url from api**
+3. **Configure Api**
 
    - open api.tsx
    - change the base url
