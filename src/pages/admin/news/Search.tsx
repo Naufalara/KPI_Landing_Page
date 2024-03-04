@@ -555,7 +555,7 @@ export default function Search() {
   return (
     <div className={classes.body}>
       <Container size="default" pt="md">
-        <Title c={theme.colors.green[9]}>News Admin Dashboard</Title>
+        <Title c={theme.colors.green[9]}>News Dashboard</Title>
         <Tabs defaultValue="index" color={theme.colors.green[9]}>
           <Tabs.List c={theme.colors.green[9]} justify="flex-start">
             <Tabs.Tab value="index" fw={700}>
@@ -603,7 +603,7 @@ export default function Search() {
               }
             />
             <Center>
-              <Table.ScrollContainer minWidth="50vw" w="70vw" h="65vh">
+              <Table.ScrollContainer minWidth="50vw" w="80vw" h="65vh">
                 <Table stickyHeader highlightOnHover verticalSpacing="sm">
                   <Table.Thead>
                     <Table.Tr c={theme.colors.green[9]}>

@@ -9,8 +9,8 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import classes from "./Home.module.css";
-import { IconBulb, IconTargetArrow } from "@tabler/icons-react";
-import { FaGears } from "react-icons/fa6";
+import { IconBulb, IconTargetArrow, IconUsersGroup } from "@tabler/icons-react";
+// import { FaGears } from "react-icons/fa6";
 import { Variants, motion } from "framer-motion";
 import { useState } from "react";
 
@@ -176,7 +176,7 @@ export default function Visimisi() {
             >
               <div>
                 <Stack align="center">
-                  <FaGears size="10rem" />
+                  <IconUsersGroup size="10rem" />
                   <Title order={2}>Budaya Kerja</Title>
                   <Center>
                     <List>
@@ -186,10 +186,21 @@ export default function Visimisi() {
                         variants={listItemVariants}
                         layout
                       >
-                        <List.Item>Berpengetahuan</List.Item>
-                        <List.Item>Akuntabilitas</List.Item>
-                        <List.Item>Integritas & Etika</List.Item>
-                        <List.Item>Kerja Tim</List.Item>
+                        <List.Item>
+                          <span style={{ fontWeight: 700 }}>B </span>
+                          erpengetahuan
+                        </List.Item>
+                        <List.Item>
+                          <span style={{ fontWeight: 700 }}>A </span>
+                          kuntabilitas
+                        </List.Item>
+                        <List.Item>
+                          <span style={{ fontWeight: 700 }}>I </span>ntegritas &
+                          Etika
+                        </List.Item>
+                        <List.Item>
+                          <span style={{ fontWeight: 700 }}>K </span>erja Tim
+                        </List.Item>
                       </motion.div>
                     </List>
                   </Center>

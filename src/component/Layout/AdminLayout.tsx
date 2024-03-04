@@ -75,7 +75,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
               />
               <Image src={kpiLogo} w="xl" visibleFrom="sm" />
               <Title c={theme.colors.green[9]} order={4}>
-                PT. KALTIM PARNA INDUSTRI
+                PT KALTIM PARNA INDUSTRI
               </Title>
             </Group>
             <ActionIcon

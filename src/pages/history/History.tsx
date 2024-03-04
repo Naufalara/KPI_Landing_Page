@@ -218,7 +218,7 @@ export default function History() {
         </Anchor>
         <Center>
           <Title c={theme.colors.green[9]} pb="xl">
-            History
+            Sejarah Perusahaan
           </Title>
         </Center>
         <Timeline active={activeIndex} color={theme.colors.green[9]}>

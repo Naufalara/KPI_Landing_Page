@@ -37,7 +37,7 @@ export function FooterLinks() {
                   style={{ marginLeft: "10px" }}
                   size="sm"
                 >
-                  PT. Kaltim Parna Industri
+                  PT KALTIM PARNA INDUSTRI
                 </Text>
               </Center>
             </div>
@@ -50,7 +50,7 @@ export function FooterLinks() {
             <div>
               <Center>
                 <Text fw={500} size="xs" c="dimmed">
-                  Administration Office
+                  Head Office & Plant
                 </Text>
               </Center>
 
@@ -134,7 +134,7 @@ export function FooterLinks() {
       </Container>
       <Container className={classes.afterFooter}>
         <Text c="dimmed" size="sm">
-          © 2024 Oniyusha All rights reserved.
+          © 2024 All rights reserved.
         </Text>
 
         <Group

@@ -92,7 +92,7 @@ export function HeaderMenu() {
               </Center>
             </a>
           </Menu.Target>
-          <Menu.Dropdown pt={30} visibleFrom="md">
+          <Menu.Dropdown pt={10} visibleFrom="md">
             {menuItems}
           </Menu.Dropdown>
         </Menu>
@@ -185,10 +185,10 @@ export function HeaderMenu() {
 
   return (
     <motion.header
-      animate={isMobile ? "none" : controls}
-      initial={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-      onHoverStart={() => controls.start({ opacity: 1 })}
+      // animate={isMobile ? "none" : controls}
+      // initial={{ opacity: 1 }}
+      // transition={{ duration: 0.3 }}
+      // onHoverStart={() => controls.start({ opacity: 1 })}
       className={classes.header}
     >
       <header>
@@ -206,7 +206,7 @@ export function HeaderMenu() {
                     size="md"
                     fw={700}
                   >
-                    PT. Kaltim Parna Industri
+                    PT KALTIM PARNA INDUSTRI
                   </Text>
                 </Center>
               </Anchor>
@@ -214,9 +214,9 @@ export function HeaderMenu() {
               {items}
 
               <Stack align="center" visibleFrom="md">
-                <Text c={theme.colors.green[9]} fw={700} pt="sm">
+                {/* <Text c={theme.colors.green[9]} fw={700} pt="sm">
                   Social Media
-                </Text>
+                </Text> */}
                 <Group justify="center">
                   <a
                     href="https://www.instagram.com/ptkpi_id/"
@@ -319,9 +319,6 @@ export function HeaderMenu() {
                 {drawerItems}
 
                 <Stack align="center">
-                  <Text c={theme.colors.green[9]} fw={700} pt="sm">
-                    Social Media
-                  </Text>
                   <Group justify="center">
                     <a
                       href="https://www.instagram.com/ptkpi_id/"

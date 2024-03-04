@@ -42,18 +42,18 @@ const galeriwana: GaleriType[] = [
     src: "https://kpi.co.id/public/upload/image/gazebo-compressed-1623392776.jpg",
     label: "Gazebo Wana Khatulistiwa",
   },
-  {
-    src: "https://kpi.co.id/public/upload/image/gazebo-oct161-1623392802.jpg",
-    label: "Gazebo Wana Khatulistiwa-2",
-  },
-  {
-    src: "https://kpi.co.id/public/upload/image/hk-oct16-a-1623392821.jpg",
-    label: "Jalan Setapak",
-  },
-  {
-    src: "https://kpi.co.id/public/upload/image/hk-oct16-b-1623392843.jpg",
-    label: "Tangki Air",
-  },
+  // {
+  //   src: "https://kpi.co.id/public/upload/image/gazebo-oct161-1623392802.jpg",
+  //   label: "Gazebo Wana Khatulistiwa-2",
+  // },
+  // {
+  //   src: "https://kpi.co.id/public/upload/image/hk-oct16-a-1623392821.jpg",
+  //   label: "Jalan Setapak",
+  // },
+  // {
+  //   src: "https://kpi.co.id/public/upload/image/hk-oct16-b-1623392843.jpg",
+  //   label: "Tangki Air",
+  // },
   {
     src: "https://kpi.co.id/public/upload/image/wana-khatulistiwa2-2019-1623392921.jpg",
     label: "Gapura Wana Khatulistiwa",

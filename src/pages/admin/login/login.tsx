@@ -16,7 +16,6 @@ import {
 } from "@mantine/core";
 import classes from "./login.module.css";
 import { useForm } from "@mantine/form";
-import { useNavigate } from "react-router";
 import api from "../../../api";
 import { notifications } from "@mantine/notifications";
 import { useAuth } from "../../../Context";
@@ -48,7 +47,7 @@ export default function login() {
     },
   });
 
-  const Navigate = useNavigate();
+  // const Nvg = useNavigate();
   const handleLogin = async () => {
     if (login) {
       await csrfToken();
@@ -68,7 +67,9 @@ export default function login() {
             message: "Welcome to KPI Admin Page",
             color: "green",
           });
-          Navigate("/admin");
+          // <Navigate to="/admin" />;
+          // Nvg("/admin");
+          window.location.href = "/admin";
         })
         .catch((error) => {
           console.error("Login failed:", error);

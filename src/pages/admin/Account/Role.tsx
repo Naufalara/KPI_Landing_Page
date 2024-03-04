@@ -349,7 +349,7 @@ export default function Role() {
 
           <Tabs.Panel value="index">
             <Center>
-              <Table.ScrollContainer minWidth="50vw" w="70vw" h="65vh">
+              <Table.ScrollContainer minWidth="50vw" w="80vw" h="65vh">
                 <Table stickyHeader highlightOnHover verticalSpacing="sm">
                   <Table.Thead>
                     <Table.Tr c={theme.colors.green[9]}>

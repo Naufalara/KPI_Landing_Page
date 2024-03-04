@@ -432,15 +432,25 @@ export default function Newsadmin() {
     setidselected(id);
   };
   const handleChangeVisibilitas = (id: number) => {
-    api.post("/changeVisibilitas/" + id).then(() => {
-      window.location.reload();
-      notifications.show({
-        title: "Visibilitas berhasil diubah",
-        message: `Berita dengan id ${id} berhasil diubah visibilitasnya`,
-        color: "green",
+    api
+      .post("/changeVisibilitas/" + id)
+      .then(() => {
+        notifications.show({
+          title: "Visibilitas berhasil diubah",
+          message: `Berita dengan id ${id} berhasil diubah visibilitasnya`,
+          color: "green",
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      })
+      .catch((error) => {
+        notifications.show({
+          title: "Error",
+          message: `Gagal mengubah visibilitas: ${error.message}`,
+          color: "red",
+        });
       });
-    }),
-      alert("Visibilitas berhasil diubah");
   };
 
   const rows = chunkdata[activePage - 1]?.map((row) => (

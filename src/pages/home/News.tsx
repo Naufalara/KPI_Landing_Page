@@ -9,6 +9,7 @@ import {
   Badge,
   useMantineTheme,
   em,
+  TypographyStylesProvider,
 } from "@mantine/core";
 import { Carousel, CarouselSlide } from "@mantine/carousel";
 import "@mantine/carousel/styles.css";
@@ -102,7 +103,9 @@ export default function News() {
             </Badge>
           </Group>
           <Text mt="xs" c="dimmed" size="sm" lineClamp={isMobile ? 2 : 4}>
-            {link.deskripsi}
+            <TypographyStylesProvider>
+              <div dangerouslySetInnerHTML={{ __html: link.deskripsi }} />
+            </TypographyStylesProvider>
           </Text>
         </Card>
       </CarouselSlide>

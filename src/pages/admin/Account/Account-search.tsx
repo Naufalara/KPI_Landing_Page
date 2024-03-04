@@ -21,7 +21,7 @@ import { IconArrowRight, IconSearch } from "@tabler/icons-react";
 import { createFormContext } from "@mantine/form";
 import { notifications } from "@mantine/notifications";
 import api from "../../../api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDisclosure } from "@mantine/hooks";
 
 interface UserItem {
@@ -94,7 +94,7 @@ function FormField() {
   );
 }
 
-export default function Account() {
+export default function AccountSearch() {
   function chunk<T>(array: T[], size: number): T[][] {
     if (!array.length) {
       return [];
@@ -116,27 +116,31 @@ export default function Account() {
 
   const [index, setIndex] = useState<UserItem[]>([]);
 
+  const { searchdata } = useParams();
+
   useEffect(() => {
     api
-      .get("/account-admin")
+      .get("/search-account/" + searchdata)
       .then((response) => {
         console.log("Response from API:", response.data); // Tampilkan hasil API ke konsol
         setIndex(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error); // Tangkap dan tampilkan kesalahan ke konsol
+        notifications.show({
+          title: "Gagal",
+          message: `Tidak di temukan data dengan kata kunci "${searchdata}"`,
+          color: "red",
+        });
       });
   }, []);
   const handleSearch = () => {
-    api
-      .get("/search-account/" + filteredData)
-      .then((response) => {
-        console.log("Response from API:", response.data);
-        Navigate("/account/search/" + filteredData);
-      })
-      .catch((error) => {
-        console.error("Error searching data:", error);
-      });
+    if (filteredData) {
+      Navigate("/account/search/" + filteredData);
+      window.location.reload();
+    } else {
+      Navigate("/account");
+    }
   };
 
   const newsdata = index;
