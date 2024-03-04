@@ -11,6 +11,8 @@ class News extends Model
 
     protected $table = 'news';
 
+    protected $id = 'id';
+
     protected $fillable = [
         'judul',
         'foto',
@@ -18,6 +20,6 @@ class News extends Model
         'deskripsi',
         'visibilitas',
         'idkategori',
-        'uploader',
+        'iduploader',
     ];
 }

@@ -15,8 +15,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->roleid !== '1') {
+        if (auth()->user()->roleid == 2) {
             return response()->json(['message' => 'Unauthorized'], 403);
+        } else if (auth()->user()->roleid == 1) {
+            return response()->json(['message' => 'Authorized']);
         }
         return $next($request);
     }

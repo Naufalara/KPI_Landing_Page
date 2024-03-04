@@ -6,7 +6,7 @@ use App\Models\Role as ModelsRole;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class role extends Seeder
+class roles extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,12 @@ class role extends Seeder
     public function run(): void
     {
         $data = [
-            ['name' => 'admin'],
-            ['name' => 'user']
+            ['name' => 'admin', 'guard_name' => 'admin'],
+            ['name' => 'user', 'guard_name' => 'admin'],
         ];
 
         foreach ($data as $item) {
-            ModelsRole::create($item);
+            ModelsRole::insert($item);
         }
     }
 }

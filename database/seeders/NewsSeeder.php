@@ -18,7 +18,7 @@ class NewsSeeder extends Seeder
 
             [
                 'judul' => 'Judul Berita 1',
-                'foto' => '',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2024-02-19',
                 'deskripsi' => 'Deskripsi berita 1.',
                 'visibilitas' => 'public',
@@ -27,7 +27,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Judul Berita 2',
-                'foto' => '',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2024-02-20',
                 'deskripsi' => 'Deskripsi berita 2.',
                 'visibilitas' => 'private',
@@ -37,7 +37,7 @@ class NewsSeeder extends Seeder
             // Tambahkan data lainnya di sini
             [
                 'judul' => 'Judul Berita 3',
-                'foto' => '',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2024-02-21',
                 'deskripsi' => 'Deskripsi berita 3.',
                 'visibilitas' => 'public',
@@ -46,7 +46,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Judul Berita 4',
-                'foto' => '',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2024-02-22',
                 'deskripsi' => 'Deskripsi berita 4.',
                 'visibilitas' => 'private',
@@ -55,7 +55,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 5',
-                'foto' => 'random_photo5.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2023-03-23',
                 'deskripsi' => 'Sed elementum consequat enim a accumsan.',
                 'visibilitas' => 'public',
@@ -64,7 +64,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 6',
-                'foto' => 'random_photo6.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2022-11-05',
                 'deskripsi' => 'In hac habitasse platea dictumst.',
                 'visibilitas' => 'private',
@@ -73,7 +73,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 7',
-                'foto' => 'random_photo7.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2023-06-12',
                 'deskripsi' => 'Praesent id metus ac tellus imperdiet pharetra.',
                 'visibilitas' => 'public',
@@ -82,7 +82,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 8',
-                'foto' => 'random_photo8.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2022-07-28',
                 'deskripsi' => 'Vestibulum convallis, lacus non euismod volutpat, lacus ante venenatis massa.',
                 'visibilitas' => 'private',
@@ -91,7 +91,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 9',
-                'foto' => 'random_photo9.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2023-01-10',
                 'deskripsi' => 'Nullam porttitor lorem et nisi porta, non aliquam nisi fermentum.',
                 'visibilitas' => 'public',
@@ -100,7 +100,7 @@ class NewsSeeder extends Seeder
             ],
             [
                 'judul' => 'Random Berita 10',
-                'foto' => 'random_photo10.jpg',
+                'foto' => '65d564b974cba.png',
                 'tanggal' => '2022-10-22',
                 'deskripsi' => 'Sed congue, mi eget bibendum volutpat, augue velit venenatis quam, ut aliquam massa nisi et ligula.',
                 'visibilitas' => 'private',
